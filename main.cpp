@@ -64,7 +64,7 @@ namespace tc {
     }
 
     void test3(int w = 28, int h = 28) {
-        std::cout << color::YELLOW << "testcase 2" << color::RESET << std::endl;
+        std::cout << color::YELLOW << "testcase 3" << color::RESET << std::endl;
 
         graphic::Screen scr(w, h);
         int width, height;
@@ -73,7 +73,8 @@ namespace tc {
         std::cout << "------------------" << std::endl;
         std::cout << scr;
         std::cout << "------------------" << std::endl;
-        scr.drawline(1, 1, 27, 6);
+        scr << graphic::Line(27, 17, 11, 27);
+        scr.drawline(1, 1, 11, 5);
         std::cout << scr;
     }
 }
