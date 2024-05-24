@@ -7,7 +7,7 @@
 namespace graphic {
 
     inline Screen& Line::displayOn(Screen& screen) const {
-        int dx = std::abs(x1 - x0), dy = std::abs(y1 - y0);
+        int dx = std::abs(x1 - x0), dy = -std::abs(y1 - y0);
         int sx = x0 < x1 ? 1 : -1, sy = y0 < y1 ? 1 : -1;
         int error = dx + dy;
 
