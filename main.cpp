@@ -70,12 +70,11 @@ namespace tc {
         int width, height;
         scr.shape(width, height);
 
-        scr.drawline(1, 1, 28, 6);
-
         std::cout << "------------------" << std::endl;
         std::cout << scr;
         std::cout << "------------------" << std::endl;
-        std::cout << scr.to_text("test2.txt") << std::endl;
+        scr.drawline(1, 1, 27, 6);
+        std::cout << scr;
     }
 }
 
