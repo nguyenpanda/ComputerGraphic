@@ -6,9 +6,7 @@
 #define COMPUTERGRAPHIC_OBJECT_H
 
 #include <cmath>
-#pragma once // TODO DELETE
-#include "../Pixel.h" // TODO DELETE
-#include "../Screen.h" // TODO DELETE
+#include "../Pixel.h"
 
 namespace graphic {
 

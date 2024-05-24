@@ -76,7 +76,7 @@ namespace graphic {
         void changeAt(const int (&arr)[5]);
 
         // File
-        std::string to_text(const std::string& filename) const;
+        std::string to_text(const std::string& filename) const; // NOLINT(*-use-nodiscard)
 
         // Line
         void drawline(float slope, float intercept);

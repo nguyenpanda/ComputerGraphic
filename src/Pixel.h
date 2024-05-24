@@ -36,7 +36,7 @@ namespace graphic {
 
         [[nodiscard]] [[maybe_unused]] uint8_t B() const;
 
-        [[maybe_unused]] int gray() const;
+        [[nodiscard]] [[maybe_unused]] int gray() const;
 
         [[maybe_unused]] static Pixel red();
 
