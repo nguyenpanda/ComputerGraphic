@@ -19,13 +19,14 @@ namespace graphic {
     public:
         Circle(int x, int y, int r);
 
-        friend Screen& operator<<(Screen& screen, const Circle*& line);
+        friend Screen& operator<<(Screen& screen, const Circle*& circle);
 
-        friend Screen& operator<<(Screen& screen, const Circle& line);
+        friend Screen& operator<<(Screen& screen, const Circle& circle);
 
-        friend Screen& operator<<(Screen* screen, const Circle& line);
+        friend Screen& operator<<(Screen* screen, const Circle& circle);
 
         ~Circle() = default;
+
     };
 
 }
