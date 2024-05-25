@@ -50,17 +50,4 @@ namespace graphic {
         return line.displayOn(*screen);
     }
 
-    Screen& Line::operator>>(Screen& screen) const {
-        return displayOn(screen);
-    }
-
-
-    Screen& Line::operator>>(Screen* screen) const {
-        return displayOn(*screen);
-    }
-
-    Screen& Line::operator>>(Screen*& screen) const {
-        return displayOn(*screen);
-    }
-
 } // graphic

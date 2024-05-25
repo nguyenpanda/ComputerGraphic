@@ -25,12 +25,6 @@ namespace graphic {
 
         friend Screen& operator<<(Screen* screen, const Line& line);
 
-        Screen& operator>>(Screen& screen) const override;
-
-        Screen& operator>>(Screen* screen) const override;
-
-        Screen& operator>>(Screen*& screen) const override;
-
         ~Line() = default;
     };
 

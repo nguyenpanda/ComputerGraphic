@@ -15,11 +15,11 @@ namespace graphic {
         [[nodiscard]] virtual Screen& displayOn(Screen& screen) const = 0;
 
     public:
-        virtual Screen& operator>>(Screen& screen) const = 0;
+        virtual Screen& operator>>(Screen& screen) const;
 
-        virtual Screen& operator>>(Screen* screen) const = 0;
+        virtual Screen& operator>>(Screen* screen) const;
 
-        virtual Screen& operator>>(Screen*& screen) const = 0;
+        virtual Screen& operator>>(Screen*& screen) const;
     };
 
 } // graphic
