@@ -30,6 +30,6 @@ namespace graphic {
 
 }
 
-#include "../Screen.h"
+#include "../../PixelScreen/Screen.h"
 
 #endif //COMPUTERGRAPHIC_CIRCLE_H

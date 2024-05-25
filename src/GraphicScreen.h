@@ -5,8 +5,8 @@
 #ifndef COMPUTERGRAPHIC_GRAPHICSCREEN_H
 #define COMPUTERGRAPHIC_GRAPHICSCREEN_H
 
-#include "Screen.h"
-#include "Pixel.h"
+#include "PixelScreen/Screen.h"
+#include "PixelScreen/Pixel.h"
 #include "Draw/GraphicObject.h"
 
 #endif //COMPUTERGRAPHIC_GRAPHICSCREEN_H

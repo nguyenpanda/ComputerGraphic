@@ -5,7 +5,7 @@
 #ifndef COMPUTERGRAPHIC_GRAPHICOBJECT_H
 #define COMPUTERGRAPHIC_GRAPHICOBJECT_H
 
-#include "Line.h"
-#include "Circle.h"
+#include "GraphicObject/Line.h"
+#include "GraphicObject/Circle.h"
 
 #endif //COMPUTERGRAPHIC_GRAPHICOBJECT_H

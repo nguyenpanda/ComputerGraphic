@@ -12,7 +12,7 @@
 #include <numeric>
 #include <vector>
 #include "Pixel.h"
-#include "Draw/GraphicObject.h"
+#include "../Draw/GraphicObject.h"
 
 namespace graphic {
 

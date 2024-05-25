@@ -10,18 +10,18 @@ add_executable(ComputerGraphic
         src/GraphicScreen.h
 
         src/PixelScreen/Pixel.cpp
-        src/Pixel.h
+        src/PixelScreen/Pixel.h
 
         src/PixelScreen/Screen.cpp
-        src/Screen.h
+        src/PixelScreen/Screen.h
 
         src/Draw/GraphicObject.h
-        src/Draw/Object.h
+        src/Draw/GraphicObject/Object.h
 
         src/Draw/GraphicObject/Line.cpp
-        src/Draw/Line.h
+        src/Draw/GraphicObject/Line.h
 
         src/Draw/GraphicObject/Circle.cpp
-        src/Draw/Circle.h
+        src/Draw/GraphicObject/Circle.h
         src/Draw/GraphicObject/Object.cpp
 )

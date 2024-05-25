@@ -30,6 +30,6 @@ namespace graphic {
 
 } // graphic
 
-#include "../Screen.h"
+#include "../../PixelScreen/Screen.h"
 
 #endif //COMPUTERGRAPHIC_LINE_H

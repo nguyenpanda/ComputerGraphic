@@ -6,7 +6,7 @@
 #define COMPUTERGRAPHIC_OBJECT_H
 
 #include <cmath>
-#include "../Pixel.h"
+#include "../../PixelScreen/Pixel.h"
 
 namespace graphic {
 

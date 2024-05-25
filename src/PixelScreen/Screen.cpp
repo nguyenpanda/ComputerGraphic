@@ -2,7 +2,7 @@
 // Created by Hà Tường Nguyên on 5/21/24.
 //
 
-#include "../Screen.h"
+#include "Screen.h"
 
 char mapChar(int pixel, const std::string& charSet) {
     int index = static_cast<int>(pixel * charSet.size() / 255);
