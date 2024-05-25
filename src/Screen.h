@@ -9,10 +9,17 @@
 #include <sstream>
 #include <cstdint>
 #include <fstream>
+#include <numeric>
+#include <vector>
 #include "Pixel.h"
 #include "Draw/GraphicObject.h"
 
 namespace graphic {
+
+    namespace mapchar {
+        const std::string std_whitespace = " .,:;+*?%S#@";
+        const std::string std_dot = ".,:;+*?%S#@";
+    }
 
     class ScreenSetUp {
         friend Screen;
@@ -35,6 +42,7 @@ namespace graphic {
 
     class Screen {
         friend std::ostream& operator<<(std::ostream& _cout, const Screen& srn);
+
         friend ScreenSetUp;
 
     private:
@@ -67,21 +75,36 @@ namespace graphic {
 
         void resetY(int y);
 
-        void reset();
+        [[maybe_unused]] void reset();
 
         void changeAt(const Pixel& pixel, int x, int y);
 
         void changeAt(int r, int g, int b, int x, int y);
 
-        void changeAt(const int (&arr)[5]);
+        void changeAt(const int (& arr)[5]);
 
         // File
         std::string to_text(const std::string& filename) const; // NOLINT(*-use-nodiscard)
 
+        // Draw
+        template<size_t N, size_t M>
+        void draw(int (& x)[N], int (& y)[M], size_t startIdx, size_t size) {
+            if (N < size) throw std::invalid_argument("Array's size of X < size");
+            if (M < size) throw std::invalid_argument("Array's size of Y < size");
+
+            for (int i = startIdx; i < size; ++i) {
+                changeAt(255, 255, 255, x[i], y[i]);
+            }
+        }
+
+        void plot(int xStart, int xEnd, int (* f)(int));
+
+        void discretePlot(int xStart, int xEnd, int (* f)(int));
+
         // Line
         void drawline(float slope, float intercept);
 
-        void drawline(float slope, float intercept, int x_min, int x_max);
+        void drawline(float slope, float intercept, int xRange, int x_max);
 
         void drawline(int x0, int y0, int x1, int y1);
 
