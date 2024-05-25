@@ -6,5 +6,6 @@
 #define COMPUTERGRAPHIC_GRAPHICOBJECT_H
 
 #include "Line.h"
+#include "Circle.h"
 
 #endif //COMPUTERGRAPHIC_GRAPHICOBJECT_H
