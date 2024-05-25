@@ -5,6 +5,7 @@
 #ifndef COMPUTERGRAPHIC_PIXEL_H
 #define COMPUTERGRAPHIC_PIXEL_H
 
+#include "color.h"
 #include <cstdint>
 #include <ostream>
 
