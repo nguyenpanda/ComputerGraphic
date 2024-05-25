@@ -11,11 +11,23 @@ char mapChar(int pixel, const std::string& charSet) {
     return charSet[index];
 }
 
+void mapCharColor(int pixel, const std::string& charSet, std::ostream& _cout) {
+    int index = static_cast<int>(pixel * charSet.size() / 255);
+    if (index < 0) {
+        _cout << ' ';
+    } else if (index >= charSet.size()) {
+        _cout << "\033[1;94m@\033[0m";
+    } else {
+        _cout << charSet[index];
+    }
+    _cout << ' ';
+}
+
 namespace graphic {
 
     Screen::Screen(int width, int height) : width(width), height(height) {
-        if (width < 1) throw std::invalid_argument("Screen's width must >= 1");
-        if (height < 1) throw std::invalid_argument("Screen's height must >= 1");
+        if (width < 1) throw std::invalid_argument("Screen's width must >= 1, got " + std::to_string(width));
+        if (height < 1) throw std::invalid_argument("Screen's height must >= 1, got " + std::to_string(height));
 
         setting = new ScreenSetUp();
         pixels = new Pixel* [height];
@@ -145,16 +157,65 @@ namespace graphic {
         return std::filesystem::current_path() / filename;
     }
 
+// Draw
+    void Screen::plot(int xStart, int xEnd, int (* f)(int)) {
+        int N = xEnd - xStart + 1;
+        std::vector<int> x(N), y(N);
+
+        std::iota(x.begin(), x.end(), 0);
+        std::transform(x.begin(), x.end(), y.begin(), [this, xStart, f](int xi) {
+            return std::round((this->height - 1) - f(xi + xStart));
+        });
+
+        int shift = *std::min_element(y.begin(), y.end());
+        std::transform(y.begin(), y.end(), y.begin(), [shift](int& new_y) {
+            return new_y - shift;
+        });
+
+        for (int i = 1; i < x.size(); ++i) {
+            *this << Line(x[i - 1], y[i - 1], x[i], y[i]);
+        }
+    }
+
+    void Screen::discretePlot(int xStart, int xEnd, int (* f)(int)) {
+        int N = xEnd - xStart + 1;
+        std::vector<int> x(N), y(N);
+
+        std::iota(x.begin(), x.end(), 0);
+        std::transform(x.begin(), x.end(), y.begin(), [this, xStart, f](int xi) {
+            return std::round((this->height - 1) - f(xi + xStart));
+        });
+
+        int shift = *std::min_element(y.begin(), y.end());
+        std::transform(y.begin(), y.end(), y.begin(), [shift](int& new_y) {
+            return new_y - shift;
+        });
+
+        for (int i = 0; i < N; ++i) {
+            changeAt(255, 255, 255, x[i], y[i]); // Example usage of changeAt
+        }
+    }
+
 // Line
     void Screen::drawline(float slope, float intercept) {
-
+        drawline(slope, intercept, 0, width - 1);
     }
 
     void Screen::drawline(float slope, float intercept, int x_min, int x_max) {
-
+        checkRange(x_min, 1);
+        checkRange(x_max, 1);
+        int n = x_max - x_min + 1;
+        int rangeX[n];
+        std::iota(rangeX, rangeX + n, x_min);
+        for (auto i: rangeX) {
+            std::cout << rangeX[i] << ' ';
+        }
+        std::cout << std::endl;
     }
 
     void Screen::drawline(int x0, int y0, int x1, int y1) {
+        checkRange(x0, y0);
+        checkRange(x1, y1);
         this << Line(x0, y0, x1, y1);
     }
 
@@ -175,20 +236,20 @@ namespace graphic {
     }
 
     void Screen::checkRange(int x, int y) const {
-        if (x < 0 or x >= width) throw std::out_of_range("x out of range");
-        if (y < 0 or y >= height) throw std::out_of_range("y out of range");
+        if (x < 0 or x >= width) throw std::out_of_range("x out of range, got " + std::to_string(x));
+        if (y < 0 or y >= height) throw std::out_of_range("y out of range, got " + std::to_string(y));
     }
 
 // Friend
     std::ostream& operator<<(std::ostream& _cout, const Screen& srn) {
         for (int y = 0; y < srn.height; ++y) {
             for (int x = 0; x < srn.width; ++x) {
-                _cout << mapChar(srn.pixels[y][x].gray(), srn.setting->getMapChar()) << ' ';
+//                _cout << mapChar(srn.pixels[y][x].gray(), srn.setting->getMapChar()) << ' ';
+                mapCharColor(srn.pixels[y][x].gray(), srn.setting->getMapChar(), _cout);
             }
             _cout << '\n';
         }
         return _cout;
     }
-
 
 } // graphic
