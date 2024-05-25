@@ -23,4 +23,5 @@ add_executable(ComputerGraphic
 
         src/Draw/GraphicObject/Circle.cpp
         src/Draw/Circle.h
+        src/Draw/GraphicObject/Object.cpp
 )
