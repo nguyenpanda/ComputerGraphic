@@ -2,7 +2,7 @@
 // Created by Hà Tường Nguyên on 5/22/24.
 //
 
-#include "../Pixel.h"
+#include "Pixel.h"
 
 namespace graphic {
 
