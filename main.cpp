@@ -64,7 +64,7 @@ namespace testcase {
     }
 
     void draw0(int w = 28, int h = 28) {
-        std::cout << color::YELLOW << "testcase::change_at 0" << color::RESET << std::endl;
+        std::cout << color::YELLOW << "testcase::draw 0" << color::RESET << std::endl;
 
         graphic::Screen scr(w, h);
         int width, height;
@@ -83,7 +83,7 @@ namespace testcase {
     }
 
     void draw1(int w = 100, int h = 100, int start = 0, size_t N = 100) {
-        std::cout << color::YELLOW << "testcase::change_at 4" << color::RESET << std::endl;
+        std::cout << color::YELLOW << "testcase::draw 4" << color::RESET << std::endl;
 
         graphic::Screen scr(w, h);
         scr.setUp()->setMapChar(graphic::mapchar::std_dot);
@@ -107,6 +107,26 @@ namespace testcase {
         scr.draw(x, y, 0, N);
         std::cout << scr;
         scr.to_text("draw1.parabola.txt");
+    }
+
+    void draw2(int w = 50, int h = 50) {
+        std::cout << color::YELLOW << "testcase::draw 2" << color::RESET << std::endl;
+
+        graphic::Screen scr(w, h);
+        scr.setUp()->setMapChar(graphic::mapchar::std_dot);
+        int width, height;
+        scr.shape(width, height);
+
+        std::cout << "------------------" << std::endl;
+        scr << graphic::Circle(25, 25, 15);
+        scr.drawcircle(25, 17, 5);
+        scr.drawcircle(17, 25, 5);
+        scr.drawcircle(25, 33, 5);
+        scr.drawcircle(33, 25, 5);
+        scr.drawcircle(3, 3, 1);
+        scr.drawcircle(8, 8, 0);
+        std::cout << scr;
+        scr.to_text("draw2.circle.txt");
     }
 
     void plot0(int w = 33, int h = 42, int x_start = -16, int x_end = 16) {
@@ -149,6 +169,7 @@ int main() {
 
 //    testcase::draw0();
 //    testcase::draw1(33, 42, -16, 33);
+    testcase::draw2();
 
 //    testcase::plot0();
 //    testcase::plot1(72, 90, -33, 33);
