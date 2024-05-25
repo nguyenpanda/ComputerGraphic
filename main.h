@@ -5,15 +5,11 @@
 #ifndef COMPUTERGRAPHIC_MAIN_H
 #define COMPUTERGRAPHIC_MAIN_H
 
-#include "../CppColor/color.h" // TODO DELETE: Temporary include
 #include "src/GraphicScreen.h"
+#include "testcase/testcase.h"
 
-#include <iostream>
 #include <chrono>
 #include <thread>
-#include <cstdint>
-#include <numeric>
-#include <string>
 #include <unistd.h>
 
 void loadBar(int _ms = 2000, char _char = 'X', int step = 5) {
