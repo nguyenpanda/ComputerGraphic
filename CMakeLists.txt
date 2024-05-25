@@ -7,7 +7,9 @@ add_executable(ComputerGraphic
         main.cpp
         main.h
 
+        # --- PixelScreen ---
         src/GraphicScreen.h
+        src/PixelScreen/color.h
 
         src/PixelScreen/Pixel.cpp
         src/PixelScreen/Pixel.h
@@ -15,7 +17,10 @@ add_executable(ComputerGraphic
         src/PixelScreen/Screen.cpp
         src/PixelScreen/Screen.h
 
+        # --- Object ---
         src/Draw/GraphicObject.h
+
+        src/Draw/GraphicObject/Object.cpp
         src/Draw/GraphicObject/Object.h
 
         src/Draw/GraphicObject/Line.cpp
@@ -23,5 +28,8 @@ add_executable(ComputerGraphic
 
         src/Draw/GraphicObject/Circle.cpp
         src/Draw/GraphicObject/Circle.h
-        src/Draw/GraphicObject/Object.cpp
+
+        # --- Testcase ---
+        testcase/testcase.h
+        testcase/Object/Line.cpp
 )
