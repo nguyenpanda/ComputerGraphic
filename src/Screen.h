@@ -101,6 +101,9 @@ namespace graphic {
 
         void discretePlot(int xStart, int xEnd, int (* f)(int));
 
+        // Circle
+        void drawcircle(int x, int y, int r, bool hasCenter = false);
+
         // Line
         void drawline(float slope, float intercept);
 
