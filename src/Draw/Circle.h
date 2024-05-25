@@ -12,6 +12,20 @@ namespace graphic {
     class Circle : public Object {
     private:
         int x, y, r;
+
+    private:
+        inline Screen& displayOn(Screen& screen) const override;
+
+    public:
+        Circle(int x, int y, int r);
+
+        friend Screen& operator<<(Screen& screen, const Circle*& line);
+
+        friend Screen& operator<<(Screen& screen, const Circle& line);
+
+        friend Screen& operator<<(Screen* screen, const Circle& line);
+
+        ~Circle() = default;
     };
 
 }
