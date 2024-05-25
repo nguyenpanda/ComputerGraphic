@@ -196,6 +196,18 @@ namespace graphic {
         }
     }
 
+// Circle
+    void Screen::drawcircle(int x, int y, int r, bool hasCenter) {
+        checkRange(x, y);
+
+        if (hasCenter) changeAt(255, 255, 255, x, y);
+        try {
+            this << Circle(x, y, r);
+        } catch (std::invalid_argument& e) {
+            std::cerr << e.what() << std::endl;
+        }
+    }
+
 // Line
     void Screen::drawline(float slope, float intercept) {
         drawline(slope, intercept, 0, width - 1);
