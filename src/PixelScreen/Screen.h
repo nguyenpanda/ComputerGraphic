@@ -20,6 +20,8 @@ namespace graphic {
     namespace mapchar {
         const std::string std_whitespace = " .,:;+*?%S#@";
         const std::string std_dot = ".,:;+*?%S#@";
+        const std::string invert_whitespace = "@#S%?*+;:,. ";
+        const std::string invert_dot = "@#S%?*+;:,.";
     }
 
     class ScreenSetUp {
