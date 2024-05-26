@@ -67,7 +67,8 @@ namespace graphic {
     }
 
     std::ostream& operator<<(std::ostream& _cout, const Pixel& pixel) {
-        _cout << '(' << pixel.r << ", " << pixel.g << ", " << pixel.b << ')';
+        _cout << '(' << (int) pixel.r << ", " << (int) pixel.g << ", " << (int) pixel.b << ')';
         return _cout;
     }
+
 }
