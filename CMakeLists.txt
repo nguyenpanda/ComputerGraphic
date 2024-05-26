@@ -9,7 +9,8 @@ add_executable(ComputerGraphic
 
         # --- PixelScreen ---
         src/GraphicScreen.h
-        src/PixelScreen/color.h
+        src/Utility/color.h
+        src/Utility/PriorityQueue.h
 
         src/PixelScreen/Pixel.cpp
         src/PixelScreen/Pixel.h
@@ -32,4 +33,5 @@ add_executable(ComputerGraphic
         # --- Testcase ---
         testcase/testcase.h
         testcase/Object/Line.cpp
+
 )
