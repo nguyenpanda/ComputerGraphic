@@ -5,7 +5,7 @@
 #ifndef COMPUTERGRAPHIC_PIXEL_H
 #define COMPUTERGRAPHIC_PIXEL_H
 
-#include "color.h"
+#include "../Utility/color.h"
 #include <cstdint>
 #include <ostream>
 
@@ -52,6 +52,17 @@ namespace graphic {
         [[maybe_unused]] static Pixel cyan();
 
         [[maybe_unused]] static Pixel white();
+
+        struct Compare {
+            struct Less {
+                bool operator()(Pixel& lhs, Pixel& rhs) { return lhs.gray() < rhs.gray(); }
+            };
+
+            struct Greater {
+                bool operator()(Pixel& lhs, Pixel& rhs) { return lhs.gray() > rhs.gray(); }
+            };
+        };
+
     };
 
 }
