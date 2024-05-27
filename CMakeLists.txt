@@ -9,9 +9,12 @@ add_executable(ComputerGraphic
 
         src/GraphicScreen.h
 
-        # Utility
+        # --- Utility ---
         src/Utility/color.cpp
         src/Utility/color.h
+
+        src/Utility/performance.cpp
+        src/Utility/performance.h
 
         src/Utility/PriorityQueue.h
 
@@ -38,4 +41,5 @@ add_executable(ComputerGraphic
         testcase/testcase.h
         testcase/Object/Line.cpp
 
+        # --- End ---
 )
