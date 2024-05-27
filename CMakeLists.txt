@@ -10,6 +10,8 @@ add_executable(ComputerGraphic
         src/GraphicScreen.h
 
         # --- Utility ---
+        src/Utility.h
+
         src/Utility/color.cpp
         src/Utility/color.h
 
@@ -40,6 +42,5 @@ add_executable(ComputerGraphic
         # --- Testcase ---
         testcase/testcase.h
         testcase/Object/Line.cpp
-
         # --- End ---
 )
