@@ -9,7 +9,28 @@ Currently, my goal for this project is to render images such as circles, lines, 
 and then output these images in PNG and BMP formats. 
 Additionally, the program should be able to read images in PNG and BMP formats for processing within the code.
 
-#  How to use?
+# Table of contents
+
+---
+
+<!-- TOC -->
+* [Computer Graphic](#computer-graphic)
+* [Table of contents](#table-of-contents)
+* [How to use?](#how-to-use)
+  * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
+  * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
+    * [Line](#line)
+    * [Circle](#circle)
+    * [Plotting](#plotting)
+      * [Discrete plot](#discrete-plot-)
+      * [Continuous plot](#continuous-plot)
+  * [`testcase.h` header file](#testcaseh-header-file)
+* [Requirement](#requirement)
+* [License](#license)
+* [References](#references)
+<!-- TOC -->
+
+# How to use?
 
 ---
 
@@ -22,7 +43,7 @@ int width, height;
 scr.shape(width, height); // Getting the `scr` shape
 ```
 
-## Drawing object on `scr`
+## Drawing object on `graphic::Screen` object
 
 ### Line
 ```C++
@@ -50,7 +71,7 @@ std::cout << scr;
 
 ### Plotting
 
-In this example, we will plot `f(x) = x^3/100 - 3x` in range `[-16, 16]`. 
+In this example, we will plot `f(x) = 0.01*x^3 - 3x` in range `[-16, 16]`. 
 
 #### Discrete plot 
 
@@ -73,7 +94,7 @@ scr.plot(-16, 16, [](int x) -> int {
 std::cout << scr;
 ```
 
-### `testcase.h` header file
+## `testcase.h` header file
 ```C++
 #include "testcase/testcase.h"
 
@@ -92,25 +113,25 @@ int main() {
 
 ```
 
-Requirement
-----
+# Requirement
+
 ---
 | **Tool**              | **Version**           |
 |-----------------------|-----------------------|
 | **C++**               | `>=20`                |
 | **CMakeFile**         | `>=3.28`              |
 
-License
-----
+# License
+
 ---
 **MIT** License (see `LICENSE.txt` file).
 
-References
-----
+# References
+
 ---
 - [Solving circular dependency][1]
 - [Bitmap file format][2]
-- [Grayscale conversion algorithms][3] _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
+- [Grayscale conversion algorithms][3], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
 - [Bresenham's line algorithm][4] `src/Draw/GraphicObject/Line.cpp`
 - [Midpoint circle algorithm][5] `src/Draw/GraphicObject/Circle.cpp`
 - [Accessing base class protected member][6] `src/Utility/PriorityQueue.h`
