@@ -6,6 +6,7 @@
 #define COMPUTERGRAPHIC_COLOR_H
 
 #include <string>
+#include <cstdint>
 
 class color {
 public:
