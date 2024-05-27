@@ -7,23 +7,58 @@
 
 #include <string>
 
-namespace color {
+class color {
+public:
+    // @formatter:off
+    const static std::string
+            RED                 ,
+            GREEN               ,
+            YELLOW              ,
+            BLUE                ,
+            MAGENTA             ,
+            CYAN                ,
+            GREEN_BACKGROUND    ,
+            RED_BACKGROUND      ,
+            CYAN_BACKGROUND     ,
+            YELLOW_BACKGROUND   ,
+            MAGENTA_BACKGROUND  ,
+            BLUE_BACKGROUND     ,
+            RESET               ;
+    // @formatter:on
 
-    const std::string
-            GREEN = "\033[1;92m",
-            RED = "\033[1;31m",
-            CYAN = "\033[1;96m",
-            YELLOW = "\033[1;93m",
-            MAGENTA = "\033[1;95m",
-            BLUE = "\033[1;94m",
-            GREEN_BACKGROUND = "\033[42;97m",
-            RED_BACKGROUND = "\033[41;97m",
-            CYAN_BACKGROUND = "\033[46;97m",
-            YELLOW_BACKGROUND = "\033[43;97m",
-            MAGENTA_BACKGROUND = "\033[45;97m",
-            BLUE_BACKGROUND = "\033[44;97m",
-            RESET = "\033[0m";
+    class fourBit {
+    public:
+        static std::string get(uint8_t SGR, int color) {
+            // SGR: Select Graphic Rendition
+            return "\033[" + std::to_string(SGR) + ";" + std::to_string(color) + "m";
+        }
 
-}
+        static std::string foreground(int color) {
+            return "\033[1;" + std::to_string(color) + "m";
+        }
+    };
+
+    class eightBit {
+    public:
+        static std::string foreground(uint8_t color) {
+            return "\033[38;5;" + std::to_string(color) + "m";
+        }
+
+        static std::string background(uint8_t color) {
+            return "\033[48;5;" + std::to_string(color) + "m";
+        }
+    };
+
+    class two4Bit {
+    public:
+        static std::string foreground(uint8_t r, uint8_t g, uint8_t b) {
+            return "\033[38;2;" + std::to_string(r) + ";" + std::to_string(g) + ";" + std::to_string(b) + "m";
+        }
+
+        static std::string background(uint8_t r, uint8_t g, uint8_t b) {
+            return "\033[48;2;" + std::to_string(r) + ";" + std::to_string(g) + ";" + std::to_string(b) + "m";
+        }
+    };
+};
 
 #endif //COMPUTERGRAPHIC_COLOR_H
