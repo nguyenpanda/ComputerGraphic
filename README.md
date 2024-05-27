@@ -27,6 +27,7 @@ Additionally, the program should be able to read images in PNG and BMP formats f
       * [Continuous plot](#continuous-plot)
   * [`testcase.h` header file](#testcaseh-header-file)
 * [Requirements](#requirements)
+* [Project implementation](#project-implementation)
 * [License](#license)
 * [References](#references)
 <!-- TOC -->
@@ -47,7 +48,7 @@ make
 ./ComputerGraphic
 ```
 
-All the output file m
+All the output files created by `int main()` function locate in `build` directory.
 
 # How to use?
 
@@ -146,6 +147,12 @@ int main() {
 |---------------|-------------|
 | **C++**       | `>=20`      |
 | **CMakeFile** | `>=3.28`    |
+
+# Project implementation
+
+---
+  Check [DOCS.md](docs/DOCS.md) for more information.
+
 
 # License
 
