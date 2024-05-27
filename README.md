@@ -100,11 +100,6 @@ Requirement
 | **C++**               | `>=20`                |
 | **CMakeFile**         | `>=3.28`              |
 
-[//]: # (Source code dependency graph)
-[//]: # (----)
-[//]: # (---)
-[//]: # (<img alt="Dependency graph" src="docs/image/dependency graph_1.png" title="Dependency graph"/>)
-
 License
 ----
 ---
