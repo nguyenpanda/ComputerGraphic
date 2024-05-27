@@ -61,4 +61,8 @@ public:
     };
 };
 
+void ANSI_bright_color_4bits_info();
+
+void ANSI_color_4bits_info();
+
 #endif //COMPUTERGRAPHIC_COLOR_H

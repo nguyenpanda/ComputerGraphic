@@ -19,3 +19,29 @@ const std::string color::MAGENTA_BACKGROUND  = "\033[45;97m";
 const std::string color::BLUE_BACKGROUND     = "\033[44;97m";
 const std::string color::RESET               = "\033[0m";
 // @formatter:on
+
+void ANSI_bright_color_4bits_info() {
+    printf("--- \\033[1;<x>m ---");
+    int i, j, n;
+    for (i = 0; i < 11; i++) {
+        for (j = 0; j < 10; j++) {
+            n = 10 * i + j;
+            if (n > 108) break;
+            printf("\033[1;%dm %3d\033[0m", n, n);
+        }
+        printf("\n");
+    }
+}
+
+void ANSI_color_4bits_info() {
+    printf("--- \\033[<x>m ---");
+    int i, j, n;
+    for (i = 0; i < 11; i++) {
+        for (j = 0; j < 10; j++) {
+            n = 10 * i + j;
+            if (n > 108) break;
+            printf("\033[%dm %3d\033[0m", n, n);
+        }
+        printf("\n");
+    }
+}
