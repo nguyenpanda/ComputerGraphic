@@ -1,12 +1,12 @@
 [Computer Graphic](https://github.com/nguyenpanda/ComputerGraphic)
 ======================
 ---
-I have always been fascinated by how computer screens work, 
-computer graphics, and how images are displayed and stored on computers. 
+I have always been fascinated by how computer screens work,
+computer graphics, and how images are displayed and stored on computers.
 This curiosity inspired me to undertake this project.
 
-Currently, my goal for this project is to render images such as circles, lines, and bijective functions, 
-and then output these images in PNG and BMP formats. 
+Currently, my goal for this project is to render images such as circles, lines, and bijective functions,
+and then output these images in PNG and BMP formats.
 Additionally, the program should be able to read images in PNG and BMP formats for processing within the code.
 
 # Table of contents
@@ -22,7 +22,7 @@ Additionally, the program should be able to read images in PNG and BMP formats f
     * [Line](#line)
     * [Circle](#circle)
     * [Plotting](#plotting)
-      * [Discrete plot](#discrete-plot-)
+      * [Discrete plot](#discrete-plot)
       * [Continuous plot](#continuous-plot)
   * [`testcase.h` header file](#testcaseh-header-file)
 * [Requirement](#requirement)
@@ -35,7 +35,9 @@ Additionally, the program should be able to read images in PNG and BMP formats f
 ---
 
 ## Creating `graphic::Screen` object
+
 Initially, we must create `graphic::Screen` object.
+
 ```C++
 // graphic::Screen(int width, int height)
 graphic::Screen scr(w, h);
@@ -46,6 +48,7 @@ scr.shape(width, height); // Getting the `scr` shape
 ## Drawing object on `graphic::Screen` object
 
 ### Line
+
 ```C++
 // graphic::Line(int x0, int y0, int x1, int y1)
 scr << graphic::Line(27, 17, 11, 27);   // Directly draw
@@ -56,6 +59,7 @@ scr.reset();                            // Reset all Pixel
 ```
 
 ### Circle
+
 ```C++
 // graphic::Circle(int x, int y, int r)
 scr << graphic::Circle(25, 25, 15);
@@ -71,30 +75,32 @@ std::cout << scr;
 
 ### Plotting
 
-In this example, we will plot `f(x) = 0.01*x^3 - 3x` in range `[-16, 16]`. 
+In this example, we will plot `f(x) = 0.01*x^3 - 3x` in range `[-16, 16]`.
 
-#### Discrete plot 
+#### Discrete plot
 
 ```C++
 // Screen::discretePlot(int x_start, int x_end, int (* f)(int))
-scr.discretePlot(-16, 16, [](int x) -> int {
-    return (int) (std::pow(x, 3) / 100 - 3 * x);
+scr.discretePlot(-16, 16,[](int x) -> int {
+return (int) (std::pow(x, 3) / 100 - 3 * x);
 });
 
 std::cout << scr;
 ```
 
 #### Continuous plot
+
 ```C++
 // Screen::plot(int x_start, int x_end, int (* f)(int))
-scr.plot(-16, 16, [](int x) -> int {
-    return (int) (std::pow(x, 3) / 100 - 3 * x);
+scr.plot(-16, 16,[](int x) -> int {
+return (int) (std::pow(x, 3) / 100 - 3 * x);
 });
 
 std::cout << scr;
 ```
 
 ## `testcase.h` header file
+
 ```C++
 #include "testcase/testcase.h"
 
@@ -116,10 +122,11 @@ int main() {
 # Requirement
 
 ---
-| **Tool**              | **Version**           |
-|-----------------------|-----------------------|
-| **C++**               | `>=20`                |
-| **CMakeFile**         | `>=3.28`              |
+
+| **Tool**      | **Version** |
+|---------------|-------------|
+| **C++**       | `>=20`      |
+| **CMakeFile** | `>=3.28`    |
 
 # License
 
@@ -129,6 +136,7 @@ int main() {
 # References
 
 ---
+
 - [Solving circular dependency][1]
 - [Bitmap file format][2]
 - [Grayscale conversion algorithms][3], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
@@ -137,8 +145,13 @@ int main() {
 - [Accessing base class protected member][6] `src/Utility/PriorityQueue.h`
 
 [1]: https://cplusplus.com/articles/Gw6AC542/ "Solving circular dependency"
+
 [2]: https://en.wikipedia.org/wiki/BMP_file_format "Bitmap file format"
+
 [3]: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html "Method 2"
+
 [4]: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm "Line algorithm"
+
 [5]: https://en.wikipedia.org/wiki/Midpoint_circle_algorithm "Midpoint circle algorithm"
+
 [6]: https://stackoverflow.com/questions/69012795/accessing-a-base-class-member-with-accessing-priority-queue-container "Accessing protected attribute"
