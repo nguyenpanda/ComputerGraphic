@@ -7,11 +7,15 @@ add_executable(ComputerGraphic
         main.cpp
         main.h
 
-        # --- PixelScreen ---
         src/GraphicScreen.h
+
+        # Utility
+        src/Utility/color.cpp
         src/Utility/color.h
+
         src/Utility/PriorityQueue.h
 
+        # --- PixelScreen ---
         src/PixelScreen/Pixel.cpp
         src/PixelScreen/Pixel.h
 
