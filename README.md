@@ -137,21 +137,18 @@ int main() {
 
 ---
 
-- [Solving circular dependency][1]
-- [Bitmap file format][2]
-- [Grayscale conversion algorithms][3], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
-- [Bresenham's line algorithm][4] `src/Draw/GraphicObject/Line.cpp`
-- [Midpoint circle algorithm][5] `src/Draw/GraphicObject/Circle.cpp`
-- [Accessing base class protected member][6] `src/Utility/PriorityQueue.h`
+- [Solving circular dependency]                            [1]
+- [Bitmap file format]                                     [2]
+- [Display color on the console using ANSI escape code]    [3] 
+- [Grayscale conversion algorithms]                        [4], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
+- [Bresenham's line algorithm]                             [5] `src/Draw/GraphicObject/Line.cpp`
+- [Midpoint circle algorithm]                              [6] `src/Draw/GraphicObject/Circle.cpp`
+- [Accessing base class protected member]                  [7] `src/Utility/PriorityQueue.h`
 
 [1]: https://cplusplus.com/articles/Gw6AC542/ "Solving circular dependency"
-
 [2]: https://en.wikipedia.org/wiki/BMP_file_format "Bitmap file format"
-
-[3]: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html "Method 2"
-
-[4]: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm "Line algorithm"
-
-[5]: https://en.wikipedia.org/wiki/Midpoint_circle_algorithm "Midpoint circle algorithm"
-
-[6]: https://stackoverflow.com/questions/69012795/accessing-a-base-class-member-with-accessing-priority-queue-container "Accessing protected attribute"
+[3]: https://en.wikipedia.org/wiki/ANSI_escape_code "ANSI escape code"
+[4]: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html "Method 2"
+[5]: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm "Line algorithm"
+[6]: https://en.wikipedia.org/wiki/Midpoint_circle_algorithm "Midpoint circle algorithm"
+[7]: https://stackoverflow.com/questions/69012795/accessing-a-base-class-member-with-accessing-priority-queue-container "Accessing protected attribute"
