@@ -9,19 +9,7 @@
 #include <iomanip>
 #include <chrono>
 
-double executeTime(void (* func)()) {
-    auto start = std::chrono::high_resolution_clock::now();
-
-    func();
-
-    auto end = std::chrono::high_resolution_clock::now();
-
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-
-    double result = (double) duration.count() / 1e6;
-    std::cout << "Execute time: " << std::setprecision(6) << result << " s";
-    return result;
-}
+double executeTime(void (* func)());
 
 template<typename inputType>
 double executeTime(void (* func)(inputType), inputType input) {
