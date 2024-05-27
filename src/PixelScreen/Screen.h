@@ -11,6 +11,7 @@
 #include <fstream>
 #include <numeric>
 #include <vector>
+#include <algorithm>
 #include "Pixel.h"
 #include "../Utility/PriorityQueue.h"
 #include "../Draw/GraphicObject.h"
