@@ -16,6 +16,7 @@ Additionally, the program should be able to read images in PNG and BMP formats f
 <!-- TOC -->
 * [Computer Graphic](#computer-graphic)
 * [Table of contents](#table-of-contents)
+* [How to install?](#how-to-install)
 * [How to use?](#how-to-use)
   * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
   * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
@@ -25,10 +26,28 @@ Additionally, the program should be able to read images in PNG and BMP formats f
       * [Discrete plot](#discrete-plot)
       * [Continuous plot](#continuous-plot)
   * [`testcase.h` header file](#testcaseh-header-file)
-* [Requirement](#requirement)
+* [Requirements](#requirements)
 * [License](#license)
 * [References](#references)
 <!-- TOC -->
+
+# How to install?
+
+---
+```bash
+git clone "https://github.com/nguyenpanda/ComputerGraphic.git"
+cd /path/to/where/you/place/ComputerGraphic
+mkdir build cd build
+```
+
+Please ensure your computer meets all the requirements listed in the [Requirements](#requirements) section
+```bash
+cmake ..
+make
+./ComputerGraphic
+```
+
+All the output file m
 
 # How to use?
 
@@ -119,7 +138,7 @@ int main() {
 
 ```
 
-# Requirement
+# Requirements
 
 ---
 
