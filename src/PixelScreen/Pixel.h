@@ -14,13 +14,13 @@ namespace graphic {
     class Screen;
 
     class Pixel {
+
         friend Screen;
+
         friend std::ostream& operator<<(std::ostream& _cout, const Pixel& pixel);
 
     private:
-        uint8_t r;
-        uint8_t g;
-        uint8_t b;
+        uint8_t r, g, b;
 
     public:
         [[maybe_unused]] Pixel();
