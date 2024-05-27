@@ -6,6 +6,7 @@
 #define COMPUTERGRAPHIC_MAIN_H
 
 #include "src/GraphicScreen.h"
+#include "src/Utility.h"
 #include "testcase/testcase.h"
 
 #include <chrono>
