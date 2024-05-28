@@ -4,7 +4,7 @@
 
 #include "test_plot.h"
 
-namespace graphic {
+namespace testcase {
 
     void plot0(int w, int h, int x_start, int x_end) {
         std::cout << color::YELLOW << "testcase::plot 0" << color::RESET << std::endl;
@@ -54,7 +54,7 @@ namespace graphic {
         graphic::Screen scr(w, h);
 
         scr.plot(x_start, x_end, [](int x) -> int {
-            return (int) (50 * std::sin(0.2 * x));
+            return (int) (100 * std::sin(0.01 * (x - 3)));
         });
 
         std::cout << "------------------" << std::endl;
