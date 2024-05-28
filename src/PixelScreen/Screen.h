@@ -65,6 +65,8 @@ namespace graphic {
 
         void changeAt(const int (& arr)[5]);
 
+        void fill(const std::vector<int>& vec);
+
         // File
         std::string to_text(const std::string& filename) const; // NOLINT(*-use-nodiscard)
 

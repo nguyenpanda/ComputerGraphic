@@ -120,6 +120,15 @@ namespace graphic {
         temp->b = RGB_X_Y[2];
     }
 
+    void Screen::fill(const std::vector<int>& vec) {
+        for (int j = 0; j < height; ++j) {
+            for (int i = 0; i < width; ++i) {
+                int value = vec[width * j + i];
+                changeAt(value, value, value, i, j);
+            }
+        }
+    }
+
 // File output
     std::string Screen::to_text(const std::string& filename) const {
         std::ofstream file(filename);
@@ -127,7 +136,7 @@ namespace graphic {
             throw std::runtime_error("Failed to open file: " + filename);
         }
 
-        auto& map_func = setting->map_func;
+        auto& map_func = MapFunc::std_map;
 
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < width; ++x) {
@@ -240,7 +249,7 @@ namespace graphic {
         MapCharFunc map_func;
 
         if (dynamic_cast<std::ofstream*>(&os) or dynamic_cast<std::fstream*>(&os)) {
-            map_func = MapFunc::mapChar;
+            map_func = MapFunc::std_map;
         } else {
             map_func = srn.setting->getMapFunc();
         }
