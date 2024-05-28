@@ -5,54 +5,32 @@
 #ifndef COMPUTERGRAPHIC_SCREEN_H
 #define COMPUTERGRAPHIC_SCREEN_H
 
-#include <iostream>
-#include <sstream>
-#include <cstdint>
-#include <fstream>
-#include <numeric>
-#include <vector>
-#include <algorithm>
 #include "Pixel.h"
+#include "ScreenSetting.h"
+
 #include "../Utility/PriorityQueue.h"
 #include "../Draw/GraphicObject.h"
 
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <typeinfo>
+#include <cstdint>
+#include <numeric>
+#include <vector>
+#include <algorithm>
+
 namespace graphic {
-
-    namespace mapchar {
-        const std::string std_whitespace = " .,:;+*?%S#@";
-        const std::string std_dot = ".,:;+*?%S#@";
-        const std::string invert_whitespace = "@#S%?*+;:,. ";
-        const std::string invert_dot = "@#S%?*+;:,.";
-    }
-
-    class ScreenSetUp {
-        friend Screen;
-    private:
-        std::string mapChar;
-
-    public:
-        explicit ScreenSetUp(std::string _mapChar = ".,:;+*?%S#@") {
-            this->mapChar = std::move(_mapChar);
-        }
-
-        void setMapChar(std::string _mapChar) {
-            this->mapChar = std::move(_mapChar);
-        }
-
-        [[nodiscard]] std::string getMapChar() const {
-            return this->mapChar;
-        }
-    };
 
     class Screen {
         friend std::ostream& operator<<(std::ostream& _cout, const Screen& srn);
 
-        friend ScreenSetUp;
+        friend ScreenSetting;
 
     private:
         int width, height;
         Pixel** pixels;
-        ScreenSetUp* setting;
+        ScreenSetting* setting;
 
     public:
         Screen(int width, int height);
@@ -65,7 +43,7 @@ namespace graphic {
 
         void shape(int& _width, int& _height) const;
 
-        [[nodiscard]] ScreenSetUp* setUp() const;
+        [[nodiscard]] ScreenSetting* setUp() const;
 
         Screen& operator=(const Screen& other);
 
@@ -96,7 +74,7 @@ namespace graphic {
             if (N < size) throw std::invalid_argument("Array's size of X < size");
             if (M < size) throw std::invalid_argument("Array's size of Y < size");
 
-            for (int i = startIdx; i < size; ++i) {
+            for (size_t i = startIdx; i < size; ++i) {
                 changeAt(255, 255, 255, x[i], y[i]);
             }
         }

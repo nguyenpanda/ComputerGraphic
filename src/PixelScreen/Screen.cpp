@@ -4,32 +4,13 @@
 
 #include "Screen.h"
 
-char mapChar(int pixel, const std::string& charSet) {
-    int index = static_cast<int>(pixel * charSet.size() / 255);
-    if (index < 0) return ' ';
-    if (index >= charSet.size()) return '@';
-    return charSet[index];
-}
-
-void mapCharColor(int pixel, const std::string& charSet, std::ostream& _cout) {
-    int index = static_cast<int>(pixel * charSet.size() / 255);
-    if (index < 0) {
-        _cout << ' ';
-    } else if (index >= charSet.size()) {
-        _cout << "\033[1;94m@\033[0m";
-    } else {
-        _cout << charSet[index];
-    }
-    _cout << ' ';
-}
-
 namespace graphic {
 
     Screen::Screen(int width, int height) : width(width), height(height) {
         if (width < 1) throw std::invalid_argument("Screen's width must >= 1, got " + std::to_string(width));
         if (height < 1) throw std::invalid_argument("Screen's height must >= 1, got " + std::to_string(height));
 
-        setting = new ScreenSetUp();
+        setting = new ScreenSetting();
         pixels = new Pixel* [height];
         for (int i = 0; i < height; ++i) {
             pixels[i] = new Pixel[width];
@@ -55,7 +36,7 @@ namespace graphic {
         return height;
     }
 
-    ScreenSetUp* Screen::setUp() const {
+    ScreenSetting* Screen::setUp() const {
         return setting;
     }
 
@@ -146,9 +127,11 @@ namespace graphic {
             throw std::runtime_error("Failed to open file: " + filename);
         }
 
+        auto& map_func = setting->map_func;
+
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < width; ++x) {
-                file << mapChar(pixels[y][x].gray(), setting->getMapChar()) << ' ';
+                map_func(file, pixels[y][x].gray(), setting->getMapChar());
             }
             file << '\n';
         }
@@ -253,15 +236,24 @@ namespace graphic {
     }
 
 // Friend
-    std::ostream& operator<<(std::ostream& _cout, const Screen& srn) {
+    std::ostream& operator<<(std::ostream& os, const Screen& srn) {
+        MapCharFunc map_func;
+
+        if (dynamic_cast<std::ofstream*>(&os) or dynamic_cast<std::fstream*>(&os)) {
+            map_func = MapFunc::mapChar;
+        } else {
+            map_func = srn.setting->getMapFunc();
+        }
+
+        auto map_char = srn.setting->getMapChar();
+
         for (int y = 0; y < srn.height; ++y) {
             for (int x = 0; x < srn.width; ++x) {
-//                _cout << mapChar(srn.pixels[y][x].gray(), srn.setting->getMapChar()) << ' ';
-                mapCharColor(srn.pixels[y][x].gray(), srn.setting->getMapChar(), _cout);
+                map_func(os, srn.pixels[y][x].gray(), map_char);
             }
-            _cout << '\n';
+            os << '\n';
         }
-        return _cout;
+        return os;
     }
 
 } // graphic
