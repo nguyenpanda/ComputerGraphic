@@ -22,9 +22,11 @@ namespace graphic {
 
     class MapFunc {
     public:
-        static void mapChar(std::ostream& os, int pixel, const std::string& charSet);
+        static void std_map(std::ostream& os, int pixel, const std::string& charSet);
 
-        static void mapCharColor(std::ostream& os, int pixel, const std::string& charSet);
+        static void blue_if_max(std::ostream& os, int pixel, const std::string& charSet);
+
+//        static void mapCharColor(std::ostream& os, int pixel, const std::string& charSet);
     };
 
 }
@@ -39,7 +41,7 @@ namespace graphic {
         MapCharFunc map_func;
 
     public:
-        explicit ScreenSetting(std::string _mapChar = mapchar::std_dot, MapCharFunc _func = MapFunc::mapCharColor);
+        explicit ScreenSetting(std::string _mapChar = mapchar::std_dot, MapCharFunc _func = MapFunc::blue_if_max);
 
         void setMapChar(std::string _mapChar);
 

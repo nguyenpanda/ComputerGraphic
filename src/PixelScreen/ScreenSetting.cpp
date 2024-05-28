@@ -6,7 +6,7 @@
 
 namespace graphic {
 
-    void MapFunc::mapChar(std::ostream& os, int pixel, const std::string& charSet) {
+    void MapFunc::std_map(std::ostream& os, int pixel, const std::string& charSet) {
         int index = static_cast<int>(pixel * charSet.size() / 255);
         if (index < 0) os << ' ';
         else if (index >= charSet.size()) os << '@';
@@ -14,7 +14,7 @@ namespace graphic {
         os << ' ';
     }
 
-    void MapFunc::mapCharColor(std::ostream& os, int pixel, const std::string& charSet) {
+    void MapFunc::blue_if_max(std::ostream& os, int pixel, const std::string& charSet) {
         int index = static_cast<int>(pixel * charSet.size() / 255);
         if (index < 0) os << ' ';
         else if (index >= charSet.size()) os << "\033[1;94m@\033[0m";
