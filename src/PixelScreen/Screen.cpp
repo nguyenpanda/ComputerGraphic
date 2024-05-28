@@ -146,7 +146,7 @@ namespace graphic {
         }
 
         file.close();
-        return std::filesystem::current_path() / filename;
+        return (std::filesystem::current_path() / filename).string();
     }
 
 // Draw
