@@ -24,6 +24,9 @@ add_executable(ComputerGraphic
         src/PixelScreen/Pixel.cpp
         src/PixelScreen/Pixel.h
 
+        src/PixelScreen/ScreenSetting.cpp
+        src/PixelScreen/ScreenSetting.h
+
         src/PixelScreen/Screen.cpp
         src/PixelScreen/Screen.h
 
@@ -41,6 +44,19 @@ add_executable(ComputerGraphic
 
         # --- Testcase ---
         testcase/testcase.h
-        testcase/Object/Line.cpp
+
+        ##### testcase::Object
+        testcase/Object/test_Line.cpp
+        testcase/Object/test_Line.h
+
+        ##### testcase::Screen
+        testcase/Screen/test_changeAt.h
+        testcase/Screen/test_changeAt.cpp
+
+        testcase/Screen/test_operator.cpp
+        testcase/Screen/test_operator.h
+
+        testcase/Screen/test_plot.cpp
+        testcase/Screen/test_plot.h
         # --- End ---
 )
