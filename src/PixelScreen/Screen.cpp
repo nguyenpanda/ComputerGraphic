@@ -121,6 +121,11 @@ namespace graphic {
     }
 
     void Screen::fill(const std::vector<int>& vec) {
+        if (vec.size() < width * height)
+            throw std::range_error(
+                    "Vector's size too small to fill the graphic::Screen object, got " + std::to_string(vec.size())
+            );
+
         for (int j = 0; j < height; ++j) {
             for (int i = 0; i < width; ++i) {
                 int value = vec[width * j + i];
@@ -262,6 +267,7 @@ namespace graphic {
             }
             os << '\n';
         }
+        os << color::RESET;
         return os;
     }
 
