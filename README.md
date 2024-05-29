@@ -17,6 +17,8 @@ Additionally, the program should be able to read images in PNG and BMP formats f
 * [Computer Graphic](#computer-graphic)
 * [Table of contents](#table-of-contents)
 * [How to install?](#how-to-install)
+  * [Default build system](#default-build-system)
+  * [Windows GNU Make](#windows-gnu-make-mingw-makefiles)
 * [How to use?](#how-to-use)
   * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
   * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
@@ -53,14 +55,18 @@ make
 First, check if you have installed **GNU Make** on your Windows system:
 ``` bash
 make --version
+```
+You should see output similar to the following:
+```
 GNU Make 4.4.1
 Built for Windows32
 Copyright (C) 1988-2023 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
-```
 If the above command outputs the version information for **GNU Make**, you can proceed with the following commands:
+```
+If the above command outputs the version information for GNU Make, you can proceed with the following commands:
 ``` bash
 cmake -G "MinGW Makefiles" ..
 make
