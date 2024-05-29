@@ -15,4 +15,10 @@
 #include <cmath>
 #include <cstdint>
 
+namespace testcase {
+
+    void all();
+
+}
+
 #endif //COMPUTERGRAPHIC_TESTCASE_H
