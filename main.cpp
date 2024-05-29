@@ -1,23 +1,31 @@
 #include "main.h"
+#include "sub_code/Dataset.h"
 
 int main(int argc, char* argv[]) {
     std::cout << color::GREEN << "Start program" << color::RESET << std::endl;
 
-    testcase::change_at0();
-    testcase::change_at1();
-    testcase::change_at2(100, 100);
+    if (argc == 0) {
+        testcase::all();
+        return 0;
+    }
 
-    testcase::draw0();
-    testcase::draw1(33, 42, -16, 33);
-    testcase::draw2();
+    std::string current_path_exe(argv[0]);
 
-    testcase::plot0();
-    testcase::plot1(72, 90, -33, 33);
-    testcase::plot2();
-    testcase::plot3();
-
-    testcase::write_ofstream0();
-    testcase::write_fstream0();
+    for (int i = 1; i < argc; ++i) {
+        if (std::strcmp(argv[i], "-f") == 0) {
+            if (i + 1 < argc) {
+                test_animation(argv[++i]);
+            } else {
+                std::cout << color::RED << "Error: -f option requires an argument." << std::endl;
+                return 1;
+            }
+        } else if (std::strcmp(argv[i], "-t") == 0) {
+            testcase::all(); // Will be updated later
+        } else {
+            std::cout << color::RED << "Unknown option: " << argv[i] << std::endl;
+            return 1;
+        }
+    }
 
     std::cout << color::GREEN << "End program" << color::RESET << std::endl;
     return 0;
