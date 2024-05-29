@@ -42,6 +42,13 @@ add_executable(ComputerGraphic
         src/Draw/GraphicObject/Circle.cpp
         src/Draw/GraphicObject/Circle.h
 
+        # --- Test_application
+        testcase/testcase.cpp
+        test_application/test_application.h
+
+        test_application/digit_recognizer/Dataset.cpp
+        test_application/digit_recognizer/Dataset.h
+
         # --- Testcase ---
         testcase/testcase.h
 
