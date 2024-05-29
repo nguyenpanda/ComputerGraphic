@@ -42,12 +42,30 @@ mkdir build cd build
 ```
 
 Please ensure your computer meets all the requirements listed in the [Requirements](#requirements) section
+
+### Default build system
 ```bash
 cmake ..
 make
 ./ComputerGraphic
 ```
-
+### Windows GNU Make (MinGW Makefiles)
+First, check if you have installed **GNU Make** on your Windows system:
+``` bash
+make --version
+GNU Make 4.4.1
+Built for Windows32
+Copyright (C) 1988-2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+```
+If the above command outputs the version information for **GNU Make**, you can proceed with the following commands:
+``` bash
+cmake -G "MinGW Makefiles" ..
+make
+./ComputerGraphic.exe
+```
 All the output files created by `int main()` function locate in `build` directory.
 
 # How to use?

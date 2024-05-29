@@ -19,6 +19,7 @@
 #include <numeric>
 #include <vector>
 #include <algorithm>
+#include <filesystem>
 
 namespace graphic {
 
