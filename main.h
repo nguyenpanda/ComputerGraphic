@@ -8,6 +8,7 @@
 #include "src/GraphicScreen.h"
 #include "src/Utility.h"
 #include "testcase/testcase.h"
+#include "test_application/test_application.h"
 
 #include <chrono>
 #include <thread>
