@@ -42,6 +42,9 @@ add_executable(ComputerGraphic
         src/Draw/GraphicObject/Circle.cpp
         src/Draw/GraphicObject/Circle.h
 
+        src/Draw/GraphicObject/Rectangle.cpp
+        src/Draw/GraphicObject/Rectangle.h
+
         # --- Test_application
         testcase/testcase.cpp
         test_application/test_application.h
