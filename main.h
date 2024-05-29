@@ -12,6 +12,11 @@
 #include <chrono>
 #include <thread>
 #include <unistd.h>
+#include <cstring>
+#include <algorithm>
+#include <functional>
+#include <random>
+#include <typeinfo>
 
 void loadBar(int _ms = 2000, char _char = 'X', int step = 5) {
     int maxRange = 100 / step;
