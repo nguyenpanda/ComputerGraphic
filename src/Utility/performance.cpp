@@ -14,6 +14,6 @@ double executeTime(void (* func)()) {
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
     double result = (double) duration.count() / 1e6;
-    std::cout << "Execute time: " << std::setprecision(6) << result << " s";
+    std::cout << "Execute time: " << std::setprecision(6) << result << " s" << std::endl;
     return result;
 }
