@@ -13,13 +13,13 @@ int main(int argc, char* argv[]) {
     for (int i = 1; i < argc; ++i) {
         if (std::strcmp(argv[i], "-f") == 0) {
             if (i + 1 < argc) {
-                AI::test_animation(argv[++i]);
+                executeTime(AI::test_animation, std::string(argv[++i]));
             } else {
                 std::cout << color::RED << "Error: -f option requires an argument." << std::endl;
                 return 1;
             }
         } else if (std::strcmp(argv[i], "-t") == 0) {
-            testcase::all(); // Will be updated later
+            executeTime(testcase::all); // Will be updated later
         } else {
             std::cout << color::RED << "Unknown option: " << argv[i] << std::endl;
             return 1;
