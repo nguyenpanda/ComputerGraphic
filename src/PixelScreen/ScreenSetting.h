@@ -14,22 +14,25 @@ namespace graphic {
 
     class Screen;
 
-    using MapCharFunc = void (*)(std::ostream&, int, const std::string&);
-
     namespace mapchar {
         const std::string std_whitespace = " .,:;+*?%S#@";
         const std::string std_dot = ".,:;+*?%S#@";
         const std::string invert_whitespace = "@#S%?*+;:,. ";
         const std::string invert_dot = "@#S%?*+;:,.";
+        const std::string none_char = " ";
     }
 
-    class MapFunc {
+    using mapfunc = void (*)(std::ostream&, int, const std::string&);
+
+    class MapFunc { // Contains only static methods having type mapfunc
     public:
         static void std_map(std::ostream& os, int pixel, const std::string& charSet);
 
-        static void blue_if_max(std::ostream& os, int pixel, const std::string& charSet);
+        static void blue_if_out(std::ostream& os, int pixel, const std::string& charSet);
 
-        static void two4_bit_map(std::ostream& os, int pixel, const std::string& charSet);
+        static void two4_bit(std::ostream& os, int pixel, const std::string& charSet);
+
+        static void eight_bit(std::ostream& os, int pixel, const std::string& charSet);
     };
 
 }
@@ -41,18 +44,18 @@ namespace graphic {
 
     private:
         std::string map_char;
-        MapCharFunc map_func;
+        mapfunc map_func;
 
     public:
-        explicit ScreenSetting(std::string _mapChar = mapchar::std_dot, MapCharFunc _func = MapFunc::blue_if_max);
+        explicit ScreenSetting(std::string _mapChar = mapchar::std_dot, mapfunc _func = MapFunc::two4_bit);
 
         void setMapChar(std::string _mapChar);
 
         [[nodiscard]] std::string getMapChar() const;
 
-        void setMapFunc(MapCharFunc _func);
+        void setMapFunc(mapfunc _func);
 
-        [[nodiscard]] MapCharFunc getMapFunc() const;
+        [[nodiscard]] mapfunc getMapFunc() const;
     };
 
 }
