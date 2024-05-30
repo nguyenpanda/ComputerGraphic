@@ -61,7 +61,8 @@ namespace AI {
 
         graphic::Screen scr(28, 28);
 
-        scr.setUp()->setMapFunc(graphic::MapFunc::two4_bit_map);
+        scr.setUp()->setMapFunc(graphic::MapFunc::two4_bit);
+        scr.setUp()->setMapChar(graphic::mapchar::none_char);
 
         for (int i = 0; i < 199; i++) {
             scr.fill(mnist[i]);
