@@ -258,7 +258,7 @@ namespace graphic {
 
 // Friend
     std::ostream& operator<<(std::ostream& os, const Screen& srn) {
-        MapCharFunc map_func;
+        mapfunc map_func;
 
         if (dynamic_cast<std::ofstream*>(&os) or dynamic_cast<std::fstream*>(&os)) {
             map_func = MapFunc::std_map;
