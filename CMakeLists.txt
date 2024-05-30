@@ -59,6 +59,9 @@ add_executable(ComputerGraphic
         testcase/Object/test_Line.cpp
         testcase/Object/test_Line.h
 
+        testcase/Object/test_Rectangle.cpp
+        testcase/Object/test_Rectangle.h
+
         ##### testcase::Screen
         testcase/Screen/test_changeAt.h
         testcase/Screen/test_changeAt.cpp
