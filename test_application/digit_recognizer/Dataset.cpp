@@ -61,11 +61,13 @@ namespace AI {
 
         graphic::Screen scr(28, 28);
 
+        scr.setUp()->setMapFunc(graphic::MapFunc::two4_bit_map);
+
         for (int i = 0; i < 199; i++) {
             scr.fill(mnist[i]);
             std::cout << scr;
             std::cout << "\033[28F";
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
         }
         std::cout << "\033[0K";
     }
