@@ -7,5 +7,6 @@
 
 #include "GraphicObject/Line.h"
 #include "GraphicObject/Circle.h"
+#include "GraphicObject/Rectangle.h"
 
 #endif //COMPUTERGRAPHIC_GRAPHICOBJECT_H
