@@ -96,6 +96,9 @@ namespace graphic {
 
         void drawline(int x0, int y0, int x1, int y1);
 
+        // Rectangle
+        void drawrectangle(int x, int y, int w, int h);
+
     private:
         Pixel** _copy(const Screen& other);
 
