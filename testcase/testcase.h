@@ -9,6 +9,7 @@
 #include "Screen/test_operator.h"
 #include "Screen/test_plot.h"
 #include "Object/test_Line.h"
+#include "Object/test_Rectangle.h"
 
 #include "../src/GraphicScreen.h"
 

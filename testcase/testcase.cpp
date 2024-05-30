@@ -20,6 +20,10 @@ namespace testcase {
         plot2();
         plot3();
 
+        rectangle0();
+        rectangle1();
+        rectangle2();
+
         write_ofstream0();
         write_fstream0();
     }
