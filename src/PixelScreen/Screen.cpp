@@ -228,6 +228,13 @@ namespace graphic {
         this << Line(x0, y0, x1, y1);
     }
 
+// Rectangle
+    void Screen::drawrectangle(int x, int y, int w, int h) {
+        checkRange(x, y);
+        checkRange(x + w, y + h);
+        this << Rectangle(x, y, w, h);
+    }
+
 // Private
     Pixel** Screen::_copy(const Screen& other) {
         if (this == &other) return pixels;
