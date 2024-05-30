@@ -15,11 +15,17 @@ namespace graphic {
     }
 
     void MapFunc::blue_if_max(std::ostream& os, int pixel, const std::string& charSet) {
-        int index = static_cast<int>(pixel * charSet.size() / 255);
+        int index = (int) std::floor(pixel * charSet.size() / 255);
         if (index < 0) os << ' ';
         else if (index >= charSet.size()) os << "\033[1;94m@\033[0m";
         else os << charSet[index];
         os << ' ';
+    }
+
+    void MapFunc::two4_bit_map(std::ostream& os, int pixel, const std::string& charSet) {
+        os << color::two4Bit::background(pixel, pixel, pixel);
+        int index = (int) (pixel * (charSet.size() - 1) / 255);
+        os << charSet[index] << ' ';
     }
 
 }

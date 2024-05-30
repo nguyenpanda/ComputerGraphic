@@ -5,7 +5,10 @@
 #ifndef COMPUTERGRAPHIC_SCREENSETTING_H
 #define COMPUTERGRAPHIC_SCREENSETTING_H
 
+#include "../Utility.h"
+
 #include <iostream>
+#include <cmath>
 
 namespace graphic {
 
@@ -26,7 +29,7 @@ namespace graphic {
 
         static void blue_if_max(std::ostream& os, int pixel, const std::string& charSet);
 
-//        static void mapCharColor(std::ostream& os, int pixel, const std::string& charSet);
+        static void two4_bit_map(std::ostream& os, int pixel, const std::string& charSet);
     };
 
 }
