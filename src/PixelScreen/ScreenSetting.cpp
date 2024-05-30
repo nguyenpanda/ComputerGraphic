@@ -14,7 +14,7 @@ namespace graphic {
         os << ' ';
     }
 
-    void MapFunc::blue_if_max(std::ostream& os, int pixel, const std::string& charSet) {
+    void MapFunc::blue_if_out(std::ostream& os, int pixel, const std::string& charSet) {
         int index = (int) std::floor(pixel * charSet.size() / 255);
         if (index < 0) os << ' ';
         else if (index >= charSet.size()) os << "\033[1;94m@\033[0m";
@@ -22,17 +22,22 @@ namespace graphic {
         os << ' ';
     }
 
-    void MapFunc::two4_bit_map(std::ostream& os, int pixel, const std::string& charSet) {
+    void MapFunc::two4_bit(std::ostream& os, int pixel, const std::string& charSet) {
         os << color::two4Bit::background(pixel, pixel, pixel);
         int index = (int) (pixel * (charSet.size() - 1) / 255);
         os << charSet[index] << ' ';
     }
 
+    void MapFunc::eight_bit(std::ostream& os, int pixel, const std::string& charSet) {
+        os << color::eightBit::background(pixel);
+        int index = (int) (pixel * (charSet.size() - 1) / 255);
+        os << charSet[index] << ' ';
+    }
 }
 
 namespace graphic {
 
-    ScreenSetting::ScreenSetting(std::string _mapChar, MapCharFunc _func) {
+    ScreenSetting::ScreenSetting(std::string _mapChar, mapfunc _func) {
         map_char = std::move(_mapChar);
         map_func = _func;
     }
@@ -45,11 +50,11 @@ namespace graphic {
         return map_char;
     }
 
-    void ScreenSetting::setMapFunc(MapCharFunc _func) {
+    void ScreenSetting::setMapFunc(mapfunc _func) {
         map_func = _func;
     }
 
-    MapCharFunc ScreenSetting::getMapFunc() const {
+    mapfunc ScreenSetting::getMapFunc() const {
         return map_func;
     }
 
