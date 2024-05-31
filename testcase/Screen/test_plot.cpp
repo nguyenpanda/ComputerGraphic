@@ -6,10 +6,27 @@
 
 namespace testcase {
 
+    void all_plot() {
+        plot0();
+        plot1();
+        plot2();
+        plot3();
+    }
+
     void plot0(int w, int h, int x_start, int x_end) {
         std::cout << color::YELLOW << "testcase::plot 0" << color::RESET << std::endl;
 
         graphic::Screen scr(w, h);
+
+        scr.plot(0, w - 1, [](int x) -> int {
+            return x;
+        });
+
+        std::cout << "------------------" << std::endl;
+        std::cout << scr;
+        scr.to_text("plot0.x.txt");
+
+        scr.reset();
 
         scr.plot(x_start, x_end, [](int x) -> int {
             return (int) (std::pow(x, 3) / 100 - 3 * x);
@@ -58,8 +75,11 @@ namespace testcase {
         });
 
         std::cout << "------------------" << std::endl;
-        std::cout << scr;
-        scr.to_text("plot3.sin.txt");
+        std::cout << "View .txt file at "
+                  << color::two4Bit::background(255, 55, 66)
+                  << scr.to_text("plot3.sin.txt")
+                  << color::RESET
+                  << " for large image" << std::endl;
     }
 
 }
