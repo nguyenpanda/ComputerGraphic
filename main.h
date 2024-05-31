@@ -24,6 +24,7 @@
 #include <cstring>
 #include <algorithm>
 #include <functional>
+#include <filesystem>
 #include <random>
 #include <typeinfo>
 
@@ -42,20 +43,29 @@ void loadBar(int _ms = 2000, char _char = 'X', int step = 5) {
 namespace cmdline {
 
     void arg_info() {
+        //@formatter:off
         std::cout
-                << color::YELLOW << " --h       " << color::RESET << ":            : Help\n"
-                << color::YELLOW << " --custom  " << color::RESET << ": <arg1,...> : test_application\n"
-                << color::YELLOW << " --ta      " << color::RESET << ": <arg1,...> : test_application\n"
-                << color::YELLOW << " --tc      " << color::RESET << ": <arg1,...> : testcase\n"
-                << std::endl;
+            << color::YELLOW << " --h       " << color::RESET << ":            : Help\n"
+            << color::YELLOW << " --custom  " << color::RESET << ":            : Write your own testcase in custom_test.h\n"
+            << color::YELLOW << " --ta      " << color::RESET << ": <arg1,...> : test_application\n"
+            << color::YELLOW << " --tc      " << color::RESET << ": <arg1,...> : testcase\n"
+            << std::endl;
+        //@formatter:on
     }
 
-    void help_info() {
+    void help_info(std::string& current_path) {
+        std::cout
+                << color::MAGENTA << "Execute directory: " << color::RESET
+                << color::YELLOW << std::filesystem::current_path().string() << color::RESET << "\n"
+                << color::MAGENTA << "Execute: " << color::RESET
+                << color::YELLOW << current_path << color::RESET << "\n"
+                << std::endl;
+
         std::cout
                 << color::MAGENTA << "--custom" << color::RESET << "\n"
-                << color::YELLOW << "\t<no_para>" << color::RESET << "\n"
+                << color::YELLOW << "\t<no_parameter>" << color::RESET << "\n"
                 //@formatter:off
-                << "\t\t-> " << "Define your own testcase in " << color::CYAN << "cmdline::custom_func" << color::RESET << "\n"
+                << "\t\t-> " << "Define your own testcase in " << color::CYAN << "cmdline::custom_func in custom_test.h" << color::RESET << "\n"
                 //@formatter:on
                 << std::endl;
 
@@ -87,11 +97,8 @@ namespace cmdline {
         ++i;
         while (i < argc && (std::string(argv[i]) != "--")) {
             if (std::string(argv[i++]) == "-mnist") {
-                if (i < argc) {
-                    while (i < argc and argv[i][0] != '-') executeTime(AI::test_animation, std::string(argv[i++]));
-                } else
-                    std::cout << color::RED << "Error: -mnist option requires an argument." << color::RESET
-                              << std::endl;
+                while (i < argc and argv[i][0] != '-')
+                    executeTime(AI::test_animation, std::string(argv[i++]));
             }
         }
         --i;
