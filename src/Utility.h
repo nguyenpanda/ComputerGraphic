@@ -6,6 +6,7 @@
 #define COMPUTERGRAPHIC_UTILITY_H
 
 #include "Utility/color.h"
+#include "Utility/cursor.h"
 #include "Utility/performance.h"
 #include "Utility/PriorityQueue.h"
 

@@ -13,6 +13,9 @@ add_executable(ComputerGraphic
         # --- Utility ---
         src/Utility.h
 
+        src/Utility/cursor.cpp
+        src/Utility/cursor.h
+
         src/Utility/color.cpp
         src/Utility/color.h
 
