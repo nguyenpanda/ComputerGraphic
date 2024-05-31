@@ -26,13 +26,23 @@ namespace graphic {
 
     class MapFunc { // Contains only static methods having type mapfunc
     public:
-        static void std_map(std::ostream& os, int pixel, const std::string& charSet);
+        static void std_map(std::ostream& os, const Pixel& pixel, const std::string& charSet,
+                            indexfunc _ifunc, colorfunc _cfunc);
 
-        static void blue_if_out(std::ostream& os, int pixel, const std::string& charSet);
+        static void blue_if_out(std::ostream& os, const Pixel& pixel, const std::string& charSet,
+                                indexfunc _ifunc, colorfunc _cfunc);
 
         static void two4_bit(std::ostream& os, int pixel, const std::string& charSet);
 
-        static void eight_bit(std::ostream& os, int pixel, const std::string& charSet);
+        static void gray_scale(std::ostream& os, const Pixel& pixel, const std::string& charSet,
+                               indexfunc _ifunc, colorfunc _cfunc);
+    };
+
+    class IndexFunc { // Contains only static methods having indexfunc type
+    public:
+        static int linear(int pixel, const std::string& charSet) {
+            return static_cast<int>(pixel * (charSet.size() - 1) / 255);
+        }
     };
 
 }
