@@ -10,6 +10,7 @@ namespace testcase {
         change_at0();
         change_at1();
         change_at2();
+        change_at3();
     }
 
     void change_at0(int w, int h) {
@@ -68,8 +69,28 @@ namespace testcase {
 
         std::cout << "------------------" << std::endl;
         std::cout << scr;
-        std::cout << "------------------" << std::endl;
         std::cout << scr.to_text("change_at2.txt") << std::endl;
+        std::cout << "------------------" << std::endl;
+    }
+
+    void change_at3(int w, int h) {
+        std::cout << color::YELLOW << "testcase::change_at 3" << color::RESET << std::endl;
+
+        graphic::Screen scr(w, h);
+
+        std::string move_cursor = "\033[" + std::to_string(h) + "F";
+        std::cout << "------------------" << std::endl;
+
+        for (int i = h - 1; i > -1; --i) {
+            for (int j = w - 1; j > -1; --j) {
+                std::cout << scr;
+                std::cout << move_cursor;
+                scr.changeAt(200 - j, 200 - i, 255 - (i + j), j, i);
+            }
+        }
+        std::cout << "\033[0K";
+
+        std::cout << scr;
     }
 
 }

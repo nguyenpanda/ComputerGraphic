@@ -17,6 +17,8 @@ namespace testcase {
 
     void change_at2(int w = 101, int h = 50);
 
+    void change_at3(int w = 50, int h = 50);
+
 }
 
 #endif //COMPUTERGRAPHIC_TEST_CHANGEAT_H
