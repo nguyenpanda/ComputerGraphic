@@ -9,6 +9,9 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
+    std::filesystem::path current_dic = std::filesystem::current_path();
+    std::filesystem::create_directory("__output");
+    std::filesystem::current_path(current_dic / "__output");
     std::string current_path_exe(argv[0]);
 
     for (int i = 1; i < argc; ++i) {
