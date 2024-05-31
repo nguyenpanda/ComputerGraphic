@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(ComputerGraphic
         main.cpp
         main.h
+        custom_test.h
 
         src/GraphicScreen.h
 
