@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 
     for (int i = 1; i < argc; ++i) {
         if (std::string(argv[i]) == "--h") {
-            cmdline::help_info();
+            cmdline::help_info(current_path_exe);
         } else if (std::string(argv[i]) == "--custom") {
             executeTime(cmdline::custom_func);
         } else if (std::string(argv[i]) == "--ta") {
