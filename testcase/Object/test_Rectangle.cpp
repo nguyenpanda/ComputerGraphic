@@ -6,6 +6,12 @@
 
 namespace testcase {
 
+    void all_rectangle() {
+        rectangle0();
+        rectangle1();
+        rectangle2();
+    }
+
     void rectangle0(int w, int h) {
         std::cout << color::YELLOW << "testcase::rectangle 0" << color::RESET << std::endl;
 
@@ -13,7 +19,7 @@ namespace testcase {
 
         src << graphic::Rectangle(0, 0, 6, 6);
         src << graphic::Rectangle(1, 1, 5, 5);
-        src << graphic::Rectangle(2, 2, 4, 4);
+        src << graphic::Rectangle(2, 2, 3, 3);
         src << graphic::Rectangle(0, 0, w, h);
         std::cout << "------------------" << std::endl;
         std::cout << src;
