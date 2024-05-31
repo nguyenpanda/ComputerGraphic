@@ -28,7 +28,6 @@ namespace testcase {
         scr.drawcircle(3, 3, 1);
         scr.drawcircle(8, 8, 0);
         std::cout << scr;
-        scr.to_text("circle0.txt");
     }
 
     void circle1(int w, int h) {
@@ -43,7 +42,6 @@ namespace testcase {
             scr.drawcircle(25, 25, i);
         }
         std::cout << scr;
-        scr.to_text("circle1.txt");
     }
 
     void circle2(int w, int h) {
@@ -58,7 +56,6 @@ namespace testcase {
             scr.drawcircle(2 * i, 20, i);
         }
         std::cout << scr;
-        scr.to_text("circle2.txt");
     }
 
 }

@@ -63,7 +63,6 @@ namespace testcase {
             scr.drawline(0, 0, x, y);
         }
         std::cout << scr;
-        scr.to_text("line2.txt");
     }
 
     void line3(int w, int h) {
@@ -78,7 +77,6 @@ namespace testcase {
             scr.drawline(1, i, --w, i);
         }
         std::cout << scr;
-        scr.to_text("line3.txt");
     }
 
 }

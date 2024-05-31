@@ -24,7 +24,6 @@ namespace testcase {
 
         std::cout << "------------------" << std::endl;
         std::cout << scr;
-        scr.to_text("plot0.x.txt");
 
         scr.reset();
 
@@ -34,7 +33,6 @@ namespace testcase {
 
         std::cout << "------------------" << std::endl;
         std::cout << scr;
-        scr.to_text("plot0.x^3.txt");
     }
 
     void plot1(int w, int h, int x_start, int x_end) {
@@ -48,7 +46,6 @@ namespace testcase {
 
         std::cout << "------------------" << std::endl;
         std::cout << scr;
-        scr.to_text("plot1.x^4.txt");
     }
 
     void plot2(int w, int h, int x_start, int x_end) {
@@ -62,13 +59,14 @@ namespace testcase {
 
         std::cout << "------------------" << std::endl;
         std::cout << scr;
-        scr.to_text("plot2.sin.txt");
     }
 
     void plot3(int w, int h, int x_start, int x_end) {
         std::cout << color::YELLOW << "testcase::plot 3" << color::RESET << std::endl;
 
         graphic::Screen scr(w, h);
+
+        scr.setUp()->setMapChar(graphic::mapchar::std_dot);
 
         scr.plot(x_start, x_end, [](int x) -> int {
             return (int) (100 * std::sin(0.01 * (x - 3)));

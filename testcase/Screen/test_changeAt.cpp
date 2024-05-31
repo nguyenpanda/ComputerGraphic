@@ -50,7 +50,6 @@ namespace testcase {
         std::cout << "------------------" << std::endl;
         std::cout << scr;
         std::cout << "------------------" << std::endl;
-        scr.to_text("change_at1.gradient.txt");
     }
 
     void change_at2(int w, int h) {
@@ -69,7 +68,6 @@ namespace testcase {
 
         std::cout << "------------------" << std::endl;
         std::cout << scr;
-        std::cout << scr.to_text("change_at2.txt") << std::endl;
         std::cout << "------------------" << std::endl;
     }
 

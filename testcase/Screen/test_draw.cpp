@@ -33,7 +33,6 @@ namespace testcase {
         std::cout << "------------------" << std::endl;
         scr.draw(x, y, 0, N);
         std::cout << scr;
-        scr.to_text("draw0.txt");
     }
 
 }

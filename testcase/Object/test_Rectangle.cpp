@@ -23,8 +23,6 @@ namespace testcase {
         src << graphic::Rectangle(0, 0, w, h);
         std::cout << "------------------" << std::endl;
         std::cout << src;
-
-        src.to_text("rectangle0.txt");
     }
 
     void rectangle1(int w, int h) {
@@ -36,8 +34,6 @@ namespace testcase {
         src.drawrectangle(8, 6, 8, 3);
         std::cout << "------------------" << std::endl;
         std::cout << src;
-
-        src.to_text("rectangle1.txt");
     }
 
     void rectangle2(int x, int y, int w, int h) {
@@ -49,8 +45,6 @@ namespace testcase {
         }
         std::cout << "------------------" << std::endl;
         std::cout << src;
-
-        src.to_text("rectangle2.txt");
     }
 
 }
