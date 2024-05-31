@@ -9,11 +9,13 @@
 
 namespace testcase {
 
+    void all_change_at();
+
     void change_at0(int w = 28, int h = 28);
 
     void change_at1(int w = 28, int h = 28);
 
-    void change_at2(int w = 28, int h = 28);
+    void change_at2(int w = 101, int h = 50);
 
 }
 

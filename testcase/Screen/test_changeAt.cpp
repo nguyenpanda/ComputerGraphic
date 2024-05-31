@@ -6,6 +6,12 @@
 
 namespace testcase {
 
+    void all_change_at() {
+        change_at0();
+        change_at1();
+        change_at2();
+    }
+
     void change_at0(int w, int h) {
         std::cout << color::YELLOW << "testcase::change_at 0" << color::RESET << std::endl;
 
@@ -15,7 +21,7 @@ namespace testcase {
 
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < width; ++x) {
-                scr.changeAt(255, 255, 255, x, y);
+                scr.changeAt(255 - x, 255 - 2 * x - y, 255 - y, x, y);
             }
         }
 
@@ -55,10 +61,9 @@ namespace testcase {
 
         int x = width - 1;
         for (int y = 0; y < height; ++y) {
-            scr.changeAt(255, 255, 255, x--, y);
-            scr.changeAt(255, 255, 255, x, y);
-            if (x < 2) break;
-            scr.changeAt(255, 255, 255, --x, y);
+            scr.changeAt(255, 0, 255, x--, y);
+            scr.changeAt(255, 255, 0, x, y);
+            scr.changeAt(0, 255, 255, --x, y);
         }
 
         std::cout << "------------------" << std::endl;
