@@ -14,6 +14,7 @@ Additionally, the program should be able to read images in PNG and BMP formats f
 ---
 
 <!-- TOC -->
+
 * [Computer Graphic](#computer-graphic)
 * [Table of contents](#table-of-contents)
 * [How to install?](#how-to-install)
@@ -21,23 +22,25 @@ Additionally, the program should be able to read images in PNG and BMP formats f
     * [Windows GNU Make (MinGW Makefiles)](#windows-gnu-make-mingw-makefiles)
     * [Test run](#test-run)
 * [How to use?](#how-to-use)
-  * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
-  * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
-    * [Line](#line)
-    * [Circle](#circle)
-    * [Plotting](#plotting)
-      * [Discrete plot](#discrete-plot)
-      * [Continuous plot](#continuous-plot)
-  * [`testcase.h` header file](#testcaseh-header-file)
+    * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
+    * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
+        * [Line](#line)
+        * [Circle](#circle)
+        * [Plotting](#plotting)
+            * [Discrete plot](#discrete-plot)
+            * [Continuous plot](#continuous-plot)
+    * [`testcase.h` header file](#testcaseh-header-file)
 * [Requirements](#requirements)
 * [Project implementation](#project-implementation)
 * [License](#license)
 * [References](#references)
+
 <!-- TOC -->
 
 # How to install?
 
 ---
+
 ```bash
 git clone "https://github.com/nguyenpanda/ComputerGraphic.git"
 cd /path/to/where/you/place/ComputerGraphic
@@ -47,17 +50,23 @@ mkdir build cd build
 Please ensure your computer meets all the requirements listed in the [Requirements](#requirements) section
 
 ### Default build system
+
 ```bash
 cmake ..
 make
 ./ComputerGraphic
 ```
+
 ### Windows GNU Make (MinGW Makefiles)
+
 First, check if you have installed **GNU Make** on your Windows system:
+
 ``` bash
 make --version
 ```
+
 You should see output similar to the following:
+
 ```
 GNU Make 4.4.1
 Built for Windows32
@@ -67,15 +76,19 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 If the above command outputs the version information for **GNU Make**, you can proceed with the following commands:
 ```
+
 If the above command outputs the version information for GNU Make, you can proceed with the following commands:
+
 ``` bash
 cmake -G "MinGW Makefiles" ..
 make
 ./ComputerGraphic.exe
 ```
+
 All the output files created by `int main()` function locate in `build` directory.
 
 ### Test run
+
 ```bash
 ./ComputerGraphic --h
 ./ComputerGraphic --tc all
@@ -183,8 +196,7 @@ int main() {
 # Project implementation
 
 ---
-  Check [DOCS.md](docs/DOCS.md) for more information.
-
+Check [DOCS.md](docs/DOCS.md) for more information.
 
 # License
 
@@ -195,18 +207,22 @@ int main() {
 
 ---
 
-- [Solving circular dependency]                            [1]
-- [Bitmap file format]                                     [2]
-- [Display color on the console using ANSI escape code]    [3] 
-- [Grayscale conversion algorithms]                        [4], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
-- [Bresenham's line algorithm]                             [5] `src/Draw/GraphicObject/Line.cpp`
-- [Midpoint circle algorithm]                              [6] `src/Draw/GraphicObject/Circle.cpp`
-- [Accessing base class protected member]                  [7] `src/Utility/PriorityQueue.h`
+[//]: # (@formatter:off)
+- [Solving circular dependency]                                  [1]
+- [Bitmap file format]                                           [2]
+- [Display 24-bit color on the console using ANSI escape code]   [3]
+- [Moving cursor using ANSI escape code]                         [4]
+- [Grayscale conversion algorithms]                              [5], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
+- [Bresenham's line algorithm]                                   [6] `src/Draw/GraphicObject/Line.cpp`
+- [Midpoint circle algorithm]                                    [7] `src/Draw/GraphicObject/Circle.cpp`
+- [Accessing base class protected member]                        [8] `src/Utility/PriorityQueue.h`
 
 [1]: https://cplusplus.com/articles/Gw6AC542/ "Solving circular dependency"
 [2]: https://en.wikipedia.org/wiki/BMP_file_format "Bitmap file format"
-[3]: https://en.wikipedia.org/wiki/ANSI_escape_code "ANSI escape code"
-[4]: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html "Method 2"
-[5]: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm "Line algorithm"
-[6]: https://en.wikipedia.org/wiki/Midpoint_circle_algorithm "Midpoint circle algorithm"
-[7]: https://stackoverflow.com/questions/69012795/accessing-a-base-class-member-with-accessing-priority-queue-container "Accessing protected attribute"
+[3]: https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit "ANSI escape code 24-bit color"
+[4]: https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_(Control_Sequence_Introducer)_sequences "ANSI escape code moving cursor"
+[5]: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html "Method 2"
+[6]: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm "Line algorithm"
+[7]: https://en.wikipedia.org/wiki/Midpoint_circle_algorithm "Midpoint circle algorithm"
+[8]: https://stackoverflow.com/questions/69012795/accessing-a-base-class-member-with-accessing-priority-queue-container "Accessing protected attribute"
+[//]: # (@formatter:on)
