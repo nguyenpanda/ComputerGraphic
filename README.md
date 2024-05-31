@@ -17,8 +17,9 @@ Additionally, the program should be able to read images in PNG and BMP formats f
 * [Computer Graphic](#computer-graphic)
 * [Table of contents](#table-of-contents)
 * [How to install?](#how-to-install)
-  * [Default build system](#default-build-system)
-  * [Windows GNU Make](#windows-gnu-make-mingw-makefiles)
+    * [Default build system](#default-build-system)
+    * [Windows GNU Make (MinGW Makefiles)](#windows-gnu-make-mingw-makefiles)
+    * [Test run](#test-run)
 * [How to use?](#how-to-use)
   * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
   * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
@@ -73,6 +74,13 @@ make
 ./ComputerGraphic.exe
 ```
 All the output files created by `int main()` function locate in `build` directory.
+
+### Test run
+```bash
+./ComputerGraphic --h
+./ComputerGraphic --tc all
+./ComputerGraphic --ta -mnist ../mnist/199.csv
+```
 
 # How to use?
 
