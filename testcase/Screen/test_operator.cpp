@@ -6,12 +6,17 @@
 
 namespace testcase {
 
-    void write_ofstream0() {
+    void all_operator() {
+        write_ofstream0();
+        write_fstream0();
+    }
+
+    void write_ofstream0(int w) {
         std::cout << color::YELLOW << "testcase::write_ofstream 0" << color::RESET << std::endl;
 
-        graphic::Screen scr(200, 51);
+        graphic::Screen scr(w, 51);
 
-        scr.plot(0, 199, [](int x) -> int {
+        scr.plot(0, w - 1, [](int x) -> int {
             return (int) (25 * std::sin(0.2 * (x - 2)));
         });
 
@@ -25,12 +30,12 @@ namespace testcase {
 
     }
 
-    void write_fstream0() {
+    void write_fstream0(int w) {
         std::cout << color::YELLOW << "testcase::write_fstream 1" << color::RESET << std::endl;
 
-        graphic::Screen scr(100, 101);
+        graphic::Screen scr(w, 101);
 
-        scr.plot(0, 99, [](int x) -> int {
+        scr.plot(0, w - 1, [](int x) -> int {
             return (int) (50 * std::sin(0.2 * x));
         });
 
