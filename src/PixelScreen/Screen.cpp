@@ -141,11 +141,16 @@ namespace graphic {
             throw std::runtime_error("Failed to open file: " + filename);
         }
 
-        auto& map_func = MapFunc::std_map;
+        //@formatter:off
+        std::string map_char = setting->getMapChar();
+        colorfunc color_func = setting->getColorFunc();
+        indexfunc index_func = setting->getIndexFunc();
+        mapfunc map_func     = MapFunc::std_map;
+        //@formatter:on
 
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < width; ++x) {
-                map_func(file, pixels[y][x].gray(), setting->getMapChar());
+                map_func(file, pixels[y][x], map_char, index_func, color_func);
             }
             file << '\n';
         }
@@ -259,22 +264,22 @@ namespace graphic {
 // Friend
     std::ostream& operator<<(std::ostream& os, const Screen& srn) {
         mapfunc map_func;
-
         if (dynamic_cast<std::ofstream*>(&os) or dynamic_cast<std::fstream*>(&os)) {
             map_func = MapFunc::std_map;
         } else {
             map_func = srn.setting->getMapFunc();
         }
 
-        auto map_char = srn.setting->getMapChar();
+        std::string map_char = srn.setting->getMapChar();
+        colorfunc color_func = srn.setting->getColorFunc();
+        indexfunc index_func = srn.setting->getIndexFunc();
 
         for (int y = 0; y < srn.height; ++y) {
             for (int x = 0; x < srn.width; ++x) {
-                map_func(os, srn.pixels[y][x].gray(), map_char);
+                map_func(os, srn.pixels[y][x], map_char, index_func, color_func);
             }
-            os << '\n';
+            os << color::RESET << '\n';
         }
-        os << color::RESET;
         return os;
     }
 
