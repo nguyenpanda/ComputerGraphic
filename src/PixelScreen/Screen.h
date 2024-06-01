@@ -30,8 +30,8 @@ namespace graphic {
 
     private:
         int width, height;
-        Pixel** pixels;
-        ScreenSetting* setting;
+        Pixel** pixels = nullptr;
+        ScreenSetting* setting= nullptr;
 
     public:
         Screen(int width, int height);
