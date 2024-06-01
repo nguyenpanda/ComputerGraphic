@@ -20,6 +20,19 @@ namespace graphic {
         }
     }
 
+    Screen::Screen(const Screen& other){
+        // Copy settings, should use operator= here
+        // IF IT EXISTED!!!!!
+        setting = new ScreenSetting();
+        setting->color_func = other.setting->color_func;
+        setting->ind_func = other.setting->ind_func;
+        setting->map_char = other.setting->map_char;
+        setting->map_func = other.setting->map_func;
+
+        // Copy the pixels
+        _copy(other);
+    }
+
     Screen::~Screen() {
         for (int i = 0; i < height; ++i) {
             delete[] pixels[i];

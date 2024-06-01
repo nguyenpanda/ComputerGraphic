@@ -36,6 +36,8 @@ namespace graphic {
     public:
         Screen(int width, int height);
 
+        Screen(const Screen& other);
+
         ~Screen();
 
         [[nodiscard]] int getWidth() const;
