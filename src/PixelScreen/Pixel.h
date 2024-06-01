@@ -25,9 +25,9 @@ namespace graphic {
     public:
         [[maybe_unused]] Pixel();
 
-        [[maybe_unused]] Pixel(uint8_t color);
+        [[maybe_unused]] Pixel(int color);
 
-        [[maybe_unused]] explicit Pixel(uint8_t _r, uint8_t _g, uint8_t _b);
+        [[maybe_unused]] explicit Pixel(int _r, int _g, int _b);
 
         ~Pixel() = default;
 
