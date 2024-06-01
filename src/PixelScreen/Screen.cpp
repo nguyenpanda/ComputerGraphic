@@ -242,6 +242,24 @@ namespace graphic {
     Pixel** Screen::_copy(const Screen& other) {
         if (this == &other) return pixels;
 
+
+        if (pixels != nullptr) {
+            for (int i = 0; i < height; ++i) {
+                delete[] pixels[i];
+            }
+
+            delete[] pixels;
+        }
+        pixels = nullptr;
+
+        width = other.width;
+        height = other.height;
+
+        pixels = new Pixel*[height];
+        for (int i = 0; i < height; ++i){
+            pixels[i] = new Pixel[width];
+        }
+
         width = other.width;
         height = other.height;
 
