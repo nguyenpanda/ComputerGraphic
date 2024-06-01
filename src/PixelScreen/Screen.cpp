@@ -100,13 +100,14 @@ namespace graphic {
         temp->b = pixel.b;
     }
 
+    void Screen::changeAt(int color, int x, int y) {
+        checkRange(x, y);
+        pixels[y][x] = Pixel(color);
+    }
+
     void Screen::changeAt(int r, int g, int b, int x, int y) {
         checkRange(x, y);
-
-        Pixel* temp = &pixels[y][x];
-        temp->r = r;
-        temp->g = g;
-        temp->b = b;
+        pixels[y][x] = Pixel(r, g, b);
     }
 
     void Screen::changeAt(const int (& RGB_X_Y)[5]) {
@@ -114,10 +115,7 @@ namespace graphic {
         int y = RGB_X_Y[4];
         checkRange(x, y);
 
-        Pixel* temp = &pixels[y][x];
-        temp->r = RGB_X_Y[0];
-        temp->g = RGB_X_Y[1];
-        temp->b = RGB_X_Y[2];
+        pixels[y][x] = Pixel(RGB_X_Y[0], RGB_X_Y[1], RGB_X_Y[2]);
     }
 
     void Screen::fill(const std::vector<int>& vec) {

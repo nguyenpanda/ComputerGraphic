@@ -62,6 +62,8 @@ namespace graphic {
 
         void changeAt(const Pixel& pixel, int x, int y);
 
+        void changeAt(int color, int x, int y);
+
         void changeAt(int r, int g, int b, int x, int y);
 
         void changeAt(const int (& arr)[5]);
