@@ -35,6 +35,20 @@ namespace graphic {
         os << charSet[index] << ' ';
     }
 
+    void MapFunc::no_char(std::ostream& os, const graphic::Pixel& pixel, const std::string& charSet,
+                          graphic::indexfunc _ifunc, graphic::colorfunc _cfunc) {
+        os << _cfunc(pixel.R(), pixel.G(), pixel.B());
+        os << ' ';
+    }
+
+}
+
+namespace graphic {
+
+    int IndexFunc::linear(int pixel, const std::string& charSet) {
+        return static_cast<int>(pixel * (charSet.size() - 1) / 255);
+    }
+
 }
 
 namespace graphic {
@@ -66,7 +80,7 @@ namespace graphic {
         color_func = _cfunc;
     }
 
-    colorfunc  ScreenSetting::getColorFunc() const{
+    colorfunc ScreenSetting::getColorFunc() const {
         return color_func;
     }
 
@@ -74,7 +88,7 @@ namespace graphic {
         ind_func = _ifunc;
     }
 
-    indexfunc ScreenSetting::getIndexFunc() const{
+    indexfunc ScreenSetting::getIndexFunc() const {
         return ind_func;
     }
 }
