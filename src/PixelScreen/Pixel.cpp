@@ -10,6 +10,8 @@ namespace graphic {
         r = g = b = 0;
     }
 
+    Pixel::Pixel(uint8_t color) : r(color), g(color), b(color) {}
+
     Pixel::Pixel(uint8_t _r, uint8_t _g, uint8_t _b) : r(_r), g(_g), b(_b) {}
 
     Pixel& Pixel::operator=(const Pixel& other) {
