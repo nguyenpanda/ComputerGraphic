@@ -53,6 +53,20 @@ namespace graphic {
         copy_setting(other);
     }
 
+    void Screen::copy_image(const Screen &other) {
+        if (this == &other) return;
+
+        deletePixels();
+
+        createPixels(other.width, other.height);
+
+        for (int i = 0; i < height; ++i) {
+            for (int j = 0; j < width; ++j) {
+                pixels[i][j] = other.pixels[i][j];
+            }
+        }
+    }
+
     void Screen::copy_setting(const Screen &other) {
         if (this == &other) return;
         setting = new ScreenSetting(other.setting->map_char,
@@ -250,6 +264,28 @@ namespace graphic {
     void Screen::checkRange(int x, int y) const {
         if (x < 0 or x >= width) throw std::out_of_range("x out of range, got " + std::to_string(x));
         if (y < 0 or y >= height) throw std::out_of_range("y out of range, got " + std::to_string(y));
+    }
+
+    void Screen::createPixels(int w, int h) {
+        width = w;
+        height = h;
+        pixels = new Pixel *[h];
+        for (int i = 0; i < h; ++i) {
+            pixels[i] = new Pixel[w];
+            for (int j = 0; j < w; ++j) {
+                pixels[i][j] = Pixel();
+            }
+        }
+    }
+
+    void Screen::deletePixels() {
+        if (pixels != nullptr) {
+            for (int i = 0; i < height; ++i) {
+                delete[] pixels[i];
+            }
+            delete[] pixels;
+        }
+        pixels = nullptr;
     }
 
 // Friend

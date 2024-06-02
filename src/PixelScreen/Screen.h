@@ -31,7 +31,7 @@ namespace graphic {
     private:
         int width, height;
         Pixel** pixels = nullptr;
-        ScreenSetting* setting= nullptr;
+        ScreenSetting* setting = nullptr;
 
     public:
         Screen(int width, int height);
@@ -51,6 +51,10 @@ namespace graphic {
         Screen& operator=(const Screen& other);
 
         void copy(const Screen& other);
+
+        void copy_image(const Screen& other);
+
+        void copy_setting(const Screen& other);
 
         [[nodiscard]] Pixel point(int x, int y) const;
 
@@ -105,6 +109,10 @@ namespace graphic {
 
     private:
         void checkRange(int x, int y) const;
+
+        void createPixels(int w, int h);
+
+        void deletePixels();
     };
 
 } // graphic
