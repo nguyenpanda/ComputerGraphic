@@ -60,6 +60,15 @@ namespace graphic {
         ind_func = _ifunc;
     }
 
+    ScreenSetting& ScreenSetting::operator=(const graphic::ScreenSetting &other) {
+        if (this == &other) return *this;
+        this->color_func = other.color_func;
+        this->ind_func = other.ind_func;
+        this->map_char = other.map_char;
+        this->map_func = other.map_func;
+        return *this;
+    }
+
     void ScreenSetting::setMapChar(std::string _mapChar) {
         map_char = std::move(_mapChar);
     }

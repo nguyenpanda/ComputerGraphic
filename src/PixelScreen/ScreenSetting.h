@@ -84,6 +84,8 @@ namespace graphic {
                                );
         // @formatter:on
 
+        ScreenSetting& operator=(const ScreenSetting& other);
+
         void setMapChar(std::string _mapChar);
 
         [[nodiscard]] std::string getMapChar() const;
