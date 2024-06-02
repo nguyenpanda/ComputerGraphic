@@ -104,8 +104,6 @@ namespace graphic {
         void drawrectangle(int x, int y, int w, int h);
 
     private:
-        Pixel** _copy(const Screen& other);
-
         void checkRange(int x, int y) const;
     };
 
