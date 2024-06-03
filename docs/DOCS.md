@@ -20,7 +20,7 @@
 Can be downloaded
 and viewed
 at [here](https://lucid.app/lucidchart/68a72af9-e53f-4598-a9ff-7f21c41abe66/edit?viewport_loc=-1733%2C-1227%2C5751%2C3140%2C0_0&invitationId=inv_2e2b332c-cd16-4ccb-b0bc-db0f3d715938)
-<img alt="Dependency graph" src="image/dependency graph/240601.png" title="Dependency graph"/>
+<img alt="Dependency graph" src="image/dependency graph/240603.svg" title="Dependency graph"/>
 
 # Console display
 
