@@ -34,6 +34,15 @@ add_executable(ComputerGraphic
         src/PixelScreen/Screen.cpp
         src/PixelScreen/Screen.h
 
+        ##### Screen::ImageProcessing
+        src/ImageProcessing/Image.h
+
+        src/ImageProcessing/Image/BaseImage.cpp
+        src/ImageProcessing/Image/BaseImage.h
+
+        src/ImageProcessing/Image/Bitmap.cpp
+        src/ImageProcessing/Image/Bitmap.h
+
         # --- Object ---
         src/Draw/GraphicObject.h
 
