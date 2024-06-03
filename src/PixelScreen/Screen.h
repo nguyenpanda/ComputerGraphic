@@ -8,8 +8,9 @@
 #include "Pixel.h"
 #include "ScreenSetting.h"
 
-#include "../Utility/PriorityQueue.h"
 #include "../Draw/GraphicObject.h"
+#include "../ImageProcessing/Image.h"
+#include "../Utility/PriorityQueue.h"
 
 #include <iostream>
 #include <sstream>
@@ -106,6 +107,9 @@ namespace graphic {
 
         // Rectangle
         void drawrectangle(int x, int y, int w, int h);
+
+        // Image
+        std::string export_image(std::string filename) const;
 
     private:
         void checkRange(int x, int y) const;
