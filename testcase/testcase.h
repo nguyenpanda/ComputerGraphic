@@ -5,6 +5,9 @@
 #ifndef COMPUTERGRAPHIC_TESTCASE_H
 #define COMPUTERGRAPHIC_TESTCASE_H
 
+// testcase::Image
+#include "Image/test_Bitmap.h"
+
 // testcase::Object
 #include "Object/test_Circle.h"
 #include "Object/test_Line.h"
