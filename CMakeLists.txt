@@ -68,6 +68,10 @@ add_executable(ComputerGraphic
         # --- Testcase ---
         testcase/testcase.h
 
+        ##### testcase::Image
+        testcase/Image/test_Bitmap.cpp
+        testcase/Image/test_Bitmap.h
+
         ##### testcase::Object
         testcase/Object/test_Circle.cpp
         testcase/Object/test_Circle.h
