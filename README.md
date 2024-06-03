@@ -13,29 +13,41 @@ Additionally, the program should be able to read images in PNG and BMP formats f
 
 ---
 
+[//]: # (@formatter:off)
 <!-- TOC -->
-
 * [Computer Graphic](#computer-graphic)
 * [Table of contents](#table-of-contents)
+* [Requirements](#requirements)
 * [How to install?](#how-to-install)
     * [Default build system](#default-build-system)
     * [Windows GNU Make (MinGW Makefiles)](#windows-gnu-make-mingw-makefiles)
     * [Test run](#test-run)
 * [How to use?](#how-to-use)
-    * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
-    * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
-        * [Line](#line)
-        * [Circle](#circle)
-        * [Plotting](#plotting)
-            * [Discrete plot](#discrete-plot)
-            * [Continuous plot](#continuous-plot)
-    * [`testcase.h` header file](#testcaseh-header-file)
-* [Requirements](#requirements)
+  * [Creating `graphic::Screen` object](#creating-graphicscreen-object)
+  * [Drawing object on `graphic::Screen` object](#drawing-object-on-graphicscreen-object)
+    * [Line](#line)
+    * [Circle](#circle)
+    * [Plotting](#plotting)
+      * [Discrete plot](#discrete-plot)
+      * [Continuous plot](#continuous-plot)
+  * [Import & Export image](#import--export-image)
+    * [Bitmap (.bmp)](#bitmap-bmp)
+      * [Export bitmap](#export-bitmap)
+      * [Import bitmap](#import-bitmap)
 * [Project implementation](#project-implementation)
 * [License](#license)
 * [References](#references)
-
 <!-- TOC -->
+[//]: # (@formatter:on)
+
+# Requirements
+
+---
+
+| **Tool**      | **Version** |
+|---------------|-------------|
+| **C++**       | `>=20`      |
+| **CMakeFile** | `>=3.28`    |
 
 # How to install?
 
@@ -164,34 +176,22 @@ return (int) (std::pow(x, 3) / 100 - 3 * x);
 std::cout << scr;
 ```
 
-## `testcase.h` header file
+## Import & Export image
+
+### Bitmap (.bmp)
+
+#### Export bitmap
 
 ```C++
-#include "testcase/testcase.h"
-
-int main() {
-    testcase::change_at0();
-    testcase::change_at1();
-    testcase::change_at2(100, 100);
-
-    testcase::draw0();
-    testcase::draw1(33, 42, -16, 33);
-    testcase::draw2();
-
-    testcase::plot0();
-    testcase::plot1(72, 90, -33, 33);
-}
-
+graphic::Bitmap("filename") << scr;
+graphic::Bitmap("filename.bmp") << scr;
 ```
 
-# Requirements
+#### Import bitmap
 
----
+```C++
 
-| **Tool**      | **Version** |
-|---------------|-------------|
-| **C++**       | `>=20`      |
-| **CMakeFile** | `>=3.28`    |
+```
 
 # Project implementation
 
@@ -207,22 +207,4 @@ Check [DOCS.md](docs/DOCS.md) for more information.
 
 ---
 
-[//]: # (@formatter:off)
-- [Solving circular dependency]                                  [1]
-- [Bitmap file format]                                           [2]
-- [Display 24-bit color on the console using ANSI escape code]   [3]
-- [Moving cursor using ANSI escape code]                         [4]
-- [Grayscale conversion algorithms]                              [5], _First formula in Method 2_ `src/PixelScreen/Pixel.cpp`
-- [Bresenham's line algorithm]                                   [6] `src/Draw/GraphicObject/Line.cpp`
-- [Midpoint circle algorithm]                                    [7] `src/Draw/GraphicObject/Circle.cpp`
-- [Accessing base class protected member]                        [8] `src/Utility/PriorityQueue.h`
-
-[1]: https://cplusplus.com/articles/Gw6AC542/ "Solving circular dependency"
-[2]: https://en.wikipedia.org/wiki/BMP_file_format "Bitmap file format"
-[3]: https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit "ANSI escape code 24-bit color"
-[4]: https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_(Control_Sequence_Introducer)_sequences "ANSI escape code moving cursor"
-[5]: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html "Method 2"
-[6]: https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm "Line algorithm"
-[7]: https://en.wikipedia.org/wiki/Midpoint_circle_algorithm "Midpoint circle algorithm"
-[8]: https://stackoverflow.com/questions/69012795/accessing-a-base-class-member-with-accessing-priority-queue-container "Accessing protected attribute"
-[//]: # (@formatter:on)
+Check [REFERENCES.md](docs/REFERENCES.md) for more information.
