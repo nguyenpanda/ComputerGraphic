@@ -30,11 +30,13 @@ namespace graphic {
 
     private:
         int width, height;
-        Pixel** pixels;
-        ScreenSetting* setting;
+        Pixel** pixels = nullptr;
+        ScreenSetting* setting = nullptr;
 
     public:
         Screen(int width, int height);
+
+        Screen(const Screen& other);
 
         ~Screen();
 
@@ -50,6 +52,10 @@ namespace graphic {
 
         void copy(const Screen& other);
 
+        void copy_image(const Screen& other);
+
+        void copy_setting(const Screen& other);
+
         [[nodiscard]] Pixel point(int x, int y) const;
 
         Pixel& pixel(int x, int y);
@@ -61,6 +67,8 @@ namespace graphic {
         [[maybe_unused]] void reset();
 
         void changeAt(const Pixel& pixel, int x, int y);
+
+        void changeAt(int color, int x, int y);
 
         void changeAt(int r, int g, int b, int x, int y);
 
@@ -100,9 +108,11 @@ namespace graphic {
         void drawrectangle(int x, int y, int w, int h);
 
     private:
-        Pixel** _copy(const Screen& other);
-
         void checkRange(int x, int y) const;
+
+        void createPixels(int w, int h);
+
+        void deletePixels();
     };
 
 } // graphic

@@ -6,6 +6,12 @@
 
 namespace testcase {
 
+    void all_rectangle() {
+        rectangle0();
+        rectangle1();
+        rectangle2();
+    }
+
     void rectangle0(int w, int h) {
         std::cout << color::YELLOW << "testcase::rectangle 0" << color::RESET << std::endl;
 
@@ -13,12 +19,10 @@ namespace testcase {
 
         src << graphic::Rectangle(0, 0, 6, 6);
         src << graphic::Rectangle(1, 1, 5, 5);
-        src << graphic::Rectangle(2, 2, 4, 4);
+        src << graphic::Rectangle(2, 2, 3, 3);
         src << graphic::Rectangle(0, 0, w, h);
         std::cout << "------------------" << std::endl;
         std::cout << src;
-
-        src.to_text("rectangle0.txt");
     }
 
     void rectangle1(int w, int h) {
@@ -30,8 +34,6 @@ namespace testcase {
         src.drawrectangle(8, 6, 8, 3);
         std::cout << "------------------" << std::endl;
         std::cout << src;
-
-        src.to_text("rectangle1.txt");
     }
 
     void rectangle2(int x, int y, int w, int h) {
@@ -43,8 +45,6 @@ namespace testcase {
         }
         std::cout << "------------------" << std::endl;
         std::cout << src;
-
-        src.to_text("rectangle2.txt");
     }
 
 }

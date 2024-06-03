@@ -9,9 +9,11 @@
 
 namespace testcase {
 
-    void write_ofstream0();
+    void all_operator();
 
-    void write_fstream0();
+    void write_ofstream0(int w = 175);
+
+    void write_fstream0(int w = 175);
 
 }
 

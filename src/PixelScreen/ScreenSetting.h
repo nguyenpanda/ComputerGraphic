@@ -6,10 +6,14 @@
 #define COMPUTERGRAPHIC_SCREENSETTING_H
 
 #include "../Utility.h"
+#include "Pixel.h"
 
 #include <iostream>
 #include <cmath>
+#include <string>
+#include <cstdarg>
 
+// Pre-define block
 namespace graphic {
 
     class Screen;
@@ -22,32 +26,65 @@ namespace graphic {
         const std::string none_char = " ";
     }
 
-    using mapfunc = void (*)(std::ostream&, int, const std::string&);
+    // @formatter:off
+    // This block of codes is used to abbreviate function type
+    using indexfunc = int (*)(int, const std::string&);
+    using colorfunc = std::string (*)(uint8_t r, uint8_t g, uint8_t b);
+    using mapfunc   = void (*)(std::ostream&, const Pixel&, const std::string&, indexfunc, colorfunc);
+    // @formatter:on
 
-    class MapFunc { // Contains only static methods having type mapfunc
-    public:
-        static void std_map(std::ostream& os, int pixel, const std::string& charSet);
+}
 
-        static void blue_if_out(std::ostream& os, int pixel, const std::string& charSet);
+// MapFunc
+namespace graphic {
 
-        static void two4_bit(std::ostream& os, int pixel, const std::string& charSet);
-
-        static void eight_bit(std::ostream& os, int pixel, const std::string& charSet);
+    class MapFunc { // Contains only static methods having mapfunc type
+    public: // Built-in define MapFunc for users
+        // @formatter:off
+        static void std_map(std::ostream& os, const Pixel& pixel, const std::string& charSet, indexfunc _ifunc, colorfunc _cfunc);
+        static void blue_if_out(std::ostream& os, const Pixel& pixel, const std::string& charSet, indexfunc _ifunc, colorfunc _cfunc);
+        static void two4_bit(std::ostream& os, const Pixel& pixel, const std::string& charSet, indexfunc _ifunc, colorfunc _cfunc);
+        static void gray_scale(std::ostream& os, const Pixel& pixel, const std::string& charSet, indexfunc _ifunc, colorfunc _cfunc);
+        static void no_char(std::ostream& os, const Pixel& pixel, const std::string& charSet,indexfunc _ifunc, colorfunc _cfunc);
+        // @formatter:on
     };
 
 }
 
+// IndexFunc
+namespace graphic {
+
+    class IndexFunc { // Contains only static methods having indexfunc type
+    public: // Built-in define IndexFunc for users
+        // @formatter:off
+        static int linear(int pixel, const std::string& charSet);
+        // @formatter:on
+    };
+
+}
+
+// ScreenSetting
 namespace graphic {
 
     class ScreenSetting {
         friend Screen;
 
     private:
-        std::string map_char;
         mapfunc map_func;
+        colorfunc color_func;
+        indexfunc ind_func;
+        std::string map_char;
 
     public:
-        explicit ScreenSetting(std::string _mapChar = mapchar::std_dot, mapfunc _func = MapFunc::two4_bit);
+        // @formatter:off
+        explicit ScreenSetting(std::string _mapChar = mapchar::none_char,
+                               mapfunc        _func = MapFunc::two4_bit,
+                               colorfunc     _cfunc = color::two4Bit::background,
+                               indexfunc     _ifunc = IndexFunc::linear
+                               );
+        // @formatter:on
+
+        ScreenSetting& operator=(const ScreenSetting& other);
 
         void setMapChar(std::string _mapChar);
 
@@ -56,6 +93,14 @@ namespace graphic {
         void setMapFunc(mapfunc _func);
 
         [[nodiscard]] mapfunc getMapFunc() const;
+
+        void setColorFunc(colorfunc _cfunc);
+
+        [[nodiscard]] colorfunc getColorFunc() const;
+
+        void setIndexFunc(indexfunc _ifunc);
+
+        [[nodiscard]] indexfunc getIndexFunc() const;
     };
 
 }

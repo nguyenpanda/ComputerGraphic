@@ -10,7 +10,16 @@ namespace graphic {
         r = g = b = 0;
     }
 
-    Pixel::Pixel(uint8_t _r, uint8_t _g, uint8_t _b) : r(_r), g(_g), b(_b) {}
+    Pixel::Pixel(int color) {
+        if (color > 255) color = 255;
+        r = color, g = color, b = color;
+    }
+
+    Pixel::Pixel(int _r, int _g, int _b) {
+        r = (_r > 255) ? 255 : _r;
+        g = (_g > 255) ? 255 : _g;
+        b = (_b > 255) ? 255 : _b;
+    }
 
     Pixel& Pixel::operator=(const Pixel& other) {
         if (this == &other) return *this;

@@ -9,6 +9,8 @@
 
 namespace testcase {
 
+    void all_rectangle();
+
     void rectangle0(int w = 10, int h = 10);
 
     void rectangle1(int w = 20, int h = 20);

@@ -20,6 +20,35 @@ const std::string color::BLUE_BACKGROUND     = "\033[44;97m";
 const std::string color::RESET               = "\033[0m";
 // @formatter:on
 
+// color::fourBit
+std::string color::fourBit::get(uint8_t SGR, int color) {
+    // SGR: Select Graphic Rendition
+    return "\033[" + std::to_string(SGR) + ";" + std::to_string(color) + "m";
+}
+
+std::string color::fourBit::foreground(int color) {
+    return "\033[1;" + std::to_string(color) + "m";
+}
+
+// color::eightBit
+std::string color::eightBit::foreground(uint8_t color) {
+    return "\033[38;5;" + std::to_string(color) + "m";
+}
+
+std::string color::eightBit::background(uint8_t color) {
+    return "\033[48;5;" + std::to_string(color) + "m";
+}
+
+// color::two4Bit
+std::string color::two4Bit::foreground(uint8_t r, uint8_t g, uint8_t b) {
+    return "\033[38;2;" + std::to_string(r) + ";" + std::to_string(g) + ";" + std::to_string(b) + "m";
+}
+
+std::string color::two4Bit::background(uint8_t r, uint8_t g, uint8_t b) {
+    return "\033[48;2;" + std::to_string(r) + ";" + std::to_string(g) + ";" + std::to_string(b) + "m";
+}
+
+//
 void ANSI_bright_color_4bits_info() {
     printf("--- \\033[1;<x>m ---");
     int i, j, n;

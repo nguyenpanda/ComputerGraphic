@@ -7,13 +7,19 @@
 
 #include "../testcase.h"
 
+#include <cmath>
+
 namespace testcase {
 
-    void draw0(int w = 28, int h = 28);
+    void all_line();
 
-    void draw1(int w = 100, int h = 100, int start = 0, int N = 100);
+    void line0(int w = 28, int h = 28);
 
-    void draw2(int w = 50, int h = 50);
+    void line1(int w = 28, int h = 28);
+
+    void line2(int w = 28, int h = 28);
+
+    void line3(int w = 28, int h = 28);
 
 }
 

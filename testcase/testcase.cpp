@@ -5,27 +5,15 @@
 #include "testcase.h"
 
 namespace testcase {
-    
+
     void all() {
-        change_at0();
-        change_at1();
-        change_at2(100, 100);
-
-        draw0();
-        draw1(33, 42, -16, 33);
-        draw2();
-
-        plot0();
-        plot1(72, 90, -33, 33);
-        plot2();
-        plot3();
-
-        rectangle0();
-        rectangle1();
-        rectangle2();
-
-        write_ofstream0();
-        write_fstream0();
+        all_circle();
+        all_line();
+        all_rectangle();
+        all_change_at();
+        all_draw();
+        all_operator();
+        all_plot();
     }
-    
+
 }

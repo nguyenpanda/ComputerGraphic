@@ -6,11 +6,15 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(ComputerGraphic
         main.cpp
         main.h
+        custom_test.h
 
         src/GraphicScreen.h
 
         # --- Utility ---
         src/Utility.h
+
+        src/Utility/cursor.cpp
+        src/Utility/cursor.h
 
         src/Utility/color.cpp
         src/Utility/color.h
@@ -56,6 +60,9 @@ add_executable(ComputerGraphic
         testcase/testcase.h
 
         ##### testcase::Object
+        testcase/Object/test_Circle.cpp
+        testcase/Object/test_Circle.h
+
         testcase/Object/test_Line.cpp
         testcase/Object/test_Line.h
 
@@ -65,6 +72,9 @@ add_executable(ComputerGraphic
         ##### testcase::Screen
         testcase/Screen/test_changeAt.h
         testcase/Screen/test_changeAt.cpp
+
+        testcase/Screen/test_draw.cpp
+        testcase/Screen/test_draw.h
 
         testcase/Screen/test_operator.cpp
         testcase/Screen/test_operator.h
