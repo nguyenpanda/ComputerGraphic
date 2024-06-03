@@ -19,21 +19,29 @@
 
 using std::cout;
 using std::endl;
+
 namespace cmdline {
+
+    // ADD YOUR HELPER FUNCTION HERE
+    double distance(int x0, int y0, int x1, int y1) {
+        return std::hypot(x0 - x1, y0 - y1);
+    }
 
     void custom_func() {
 
         // ADD YOUR CODE HERE
-        graphic::Screen src(28,28);
-        graphic::Screen temp_src = src;
-        temp_src.drawrectangle(5,5,10,12);
-        //graphic::Screen temp_src2(28,28);
-        //temp_src.drawrectangle(5,5,10,10);
-        //temp_src2 = src;
-        //src.drawrectangle(5,5,10,10);
-        src.drawrectangle(0,0,5,5);
-        cout << src;
+        int w = 171, h = 171;
+        int cen_w = w / 2, cen_h = h / 2;
 
+        graphic::Screen scr(w, h);
+        for (int j = 0; j < h; ++j) {
+            for (int i = 0; i < w; ++i) {
+                int val = static_cast<int>(2 * distance(cen_w, cen_h, i, j));
+                scr.changeAt(val, val, val, i, j);
+            }
+        }
+
+        cout << scr;
 
     }
 
