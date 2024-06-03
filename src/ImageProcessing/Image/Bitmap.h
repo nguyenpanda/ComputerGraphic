@@ -5,7 +5,7 @@
 #ifndef COMPUTERGRAPHIC_BITMAP_H
 #define COMPUTERGRAPHIC_BITMAP_H
 
-#include "../Image.h"
+#include "BaseImage.h"
 
 namespace graphic {
 
