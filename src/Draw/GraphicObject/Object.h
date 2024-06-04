@@ -19,7 +19,6 @@ namespace graphic {
 
         virtual Screen& operator>>(Screen* screen) const;
 
-        virtual Screen& operator>>(Screen*& screen) const;
     };
 
 } // graphic

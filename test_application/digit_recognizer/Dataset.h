@@ -20,8 +20,8 @@ namespace AI {
 
     class Dataset {
     private:
-        std::vector<std::vector<int>*>* feature;
-        std::vector<int>* target;
+        std::vector<std::vector<int>*>* feature = nullptr;
+        std::vector<int>* target = nullptr;
         std::string path;
 
     public:

@@ -25,7 +25,9 @@
 namespace graphic {
 
     class Screen {
-        friend std::ostream& operator<<(std::ostream& _cout, const Screen& srn);
+        friend std::ostream& operator<<(std::ostream& os, const Screen& srn);
+
+        friend std::ostream& operator<<(std::ostream& os, const Screen* srn);
 
         friend ScreenSetting;
 
@@ -35,7 +37,7 @@ namespace graphic {
         ScreenSetting* setting = nullptr;
 
     public:
-        Screen(int width, int height);
+        explicit Screen(int width = 1, int height = 1);
 
         Screen(const Screen& other);
 
@@ -56,6 +58,8 @@ namespace graphic {
         void copy_image(const Screen& other);
 
         void copy_setting(const Screen& other);
+
+        void resize(int w, int h);
 
         [[nodiscard]] Pixel point(int x, int y) const;
 
@@ -109,7 +113,7 @@ namespace graphic {
         void drawrectangle(int x, int y, int w, int h);
 
         // Image
-        std::string export_image(std::string filename) const;
+        std::string export_image(const std::string& filename) const;
 
     private:
         void checkRange(int x, int y) const;

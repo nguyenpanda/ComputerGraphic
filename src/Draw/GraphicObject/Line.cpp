@@ -37,7 +37,7 @@ namespace graphic {
 
     Line::Line(int x0, int y0, int x1, int y1) : x0(x0), y0(y0), x1(x1), y1(y1) {}
 
-    Screen& operator<<(Screen& screen, const Line*& line) {
+    Screen& operator<<(Screen& screen, const Line* line) {
         if (line == nullptr) return screen;
         return line->displayOn(screen);
     }

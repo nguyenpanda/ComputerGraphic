@@ -23,7 +23,7 @@ namespace graphic {
 
     Rectangle::Rectangle(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {}
 
-    Screen& operator<<(Screen& screen, const Rectangle*& rectangle) {
+    Screen& operator<<(Screen& screen, const Rectangle* rectangle) {
         if (rectangle == nullptr) return screen;
         return rectangle->displayOn(screen);
     }
