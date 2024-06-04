@@ -20,6 +20,11 @@ namespace graphic {
         return to_file(*screen);
     }
 
+    Screen& Bitmap::operator>>(Screen& screen) const {
+        screen = to_screen();
+        return screen;
+    }
+
     std::string Bitmap::to_file(const Screen& screen) {
         int w, h;
         screen.shape(w, h);
@@ -53,6 +58,51 @@ namespace graphic {
 
         file.close();
         return (std::filesystem::current_path() / filename).string();
+    }
+
+    Screen& Bitmap::to_screen() const {
+        std::ifstream file(filename);
+
+        if (!file) {
+            throw std::invalid_argument(
+                    "Error opening file: " + (std::filesystem::current_path() / filename).string()
+            );
+        }
+
+        char header_data[54];
+        file.read(header_data, 54);
+
+        int w = 0, h = 0, count = 0;
+
+        for (int i = 18; i <= 21; ++i) {
+            std::cout << (int) header_data[i] << ' ';
+            w += header_data[i] * (int) std::pow(16, count);
+        } std::cout << std::endl;
+
+        count = 0;
+
+        for (int i = 22; i <= 25; ++i) {
+            std::cout << (int) header_data[i] << ' ';
+            h += header_data[i] * (int) std::pow(16, count);
+        } std::cout << std::endl;
+
+        char temp;
+        char r, g, b;
+        int padding = (4 - (3 * w) % 4) % 4;
+
+        graphic::Screen scr(w, h);
+        for (int j = 0; j < h; ++j) {
+            for (int i = 0; i < w; ++i) {
+                file.read(&b, 1);
+                file.read(&g, 1);
+                file.read(&r, 1);
+                if (i == w - 1) file.read(&temp, padding);
+                scr.pixel(i, j) = graphic::Pixel(r, g, b);
+            }
+        }
+
+        file.close();
+        return scr;
     }
 
     void Bitmap::fillHeaderVal(int val, int placeHigh) {
