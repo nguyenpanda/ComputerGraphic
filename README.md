@@ -190,7 +190,8 @@ graphic::Bitmap("filename.bmp") << scr;
 #### Import bitmap
 
 ```C++
-
+graphic::Bitmap("filename") >> scr;
+graphic::Bitmap("filename.bmp") >> scr;
 ```
 
 # Project implementation
