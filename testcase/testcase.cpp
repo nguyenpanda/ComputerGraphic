@@ -7,13 +7,16 @@
 namespace testcase {
 
     void all() {
-        all_circle();
-        all_line();
-        all_rectangle();
-        all_change_at();
-        all_draw();
-        all_operator();
-        all_plot();
+        //@formatter:off
+        all_circle();           // 1
+        all_line();             // 2
+        all_rectangle();        // 3
+        all_change_at();        // 4
+        all_draw();             // 5
+        all_operator();         // 6
+        all_plot();             // 7
+        all_bitmap();           // 8
+        //@formatter:on
     }
 
 }

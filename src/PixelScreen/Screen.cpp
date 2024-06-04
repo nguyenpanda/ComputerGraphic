@@ -260,6 +260,21 @@ namespace graphic {
         this << Rectangle(x, y, w, h);
     }
 
+// Image
+    std::string Screen::export_image(std::string filename) const {
+        size_t found = filename.rfind('.');
+        std::string extension = "";
+        if (found != std::string::npos) {
+            extension = filename.substr(found, std::string::npos);
+        }
+
+        if (extension == ".bmp") {
+            return (Bitmap(filename) << this);
+        } else {
+            return (Bitmap(filename) << this);
+        }
+    }
+
 // Private
     void Screen::checkRange(int x, int y) const {
         if (x < 0 or x >= width) throw std::out_of_range("x out of range, got " + std::to_string(x));

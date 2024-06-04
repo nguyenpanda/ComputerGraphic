@@ -8,5 +8,6 @@
 #include "PixelScreen/Screen.h"
 #include "PixelScreen/Pixel.h"
 #include "Draw/GraphicObject.h"
+#include "ImageProcessing/Image.h"
 
 #endif //COMPUTERGRAPHIC_GRAPHICSCREEN_H
