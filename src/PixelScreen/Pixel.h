@@ -25,13 +25,15 @@ namespace graphic {
     public:
         [[maybe_unused]] Pixel();
 
-        [[maybe_unused]] Pixel(int color);
+        [[maybe_unused]] explicit Pixel(int color);
 
         [[maybe_unused]] explicit Pixel(int _r, int _g, int _b);
 
         ~Pixel() = default;
 
         Pixel& operator=(const Pixel& other);
+
+        void set(int _r, int _g, int _b);
 
         [[nodiscard]] [[maybe_unused]] uint8_t R() const;
 

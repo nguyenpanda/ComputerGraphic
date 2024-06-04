@@ -19,7 +19,7 @@ namespace graphic {
     public:
         Rectangle(int x, int y, int w, int h);
 
-        friend Screen& operator<<(Screen& screen, const Rectangle*& rectangle);
+        friend Screen& operator<<(Screen& screen, const Rectangle* rectangle);
 
         friend Screen& operator<<(Screen& screen, const Rectangle& rectangle);
 

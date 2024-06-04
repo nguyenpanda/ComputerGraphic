@@ -117,6 +117,7 @@ namespace cmdline {
             else if (tc_name == "draw")         executeTime(testcase::all_draw);
             else if (tc_name == "operator")     executeTime(testcase::all_operator);
             else if (tc_name == "plot")         executeTime(testcase::all_plot);
+            else if (tc_name == "bmp")          executeTime(testcase::all_bitmap);
             else std::cout << color::RED << "Could not find testcase::" << tc_name << std::endl;
             //@formatter:on
             ++i;

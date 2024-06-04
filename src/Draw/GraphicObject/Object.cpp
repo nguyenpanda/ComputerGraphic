@@ -13,7 +13,4 @@ namespace graphic {
         return displayOn(*screen);
     }
 
-    Screen& Object::operator>>(Screen*& screen) const {
-        return displayOn(*screen);
-    }
 }

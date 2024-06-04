@@ -31,6 +31,10 @@ namespace graphic {
         return *this;
     }
 
+    void Pixel::set(int _r, int _g, int _b) {
+        r = _r, g = _g, b = _b;
+    }
+
     uint8_t Pixel::R() const {
         return r;
     }

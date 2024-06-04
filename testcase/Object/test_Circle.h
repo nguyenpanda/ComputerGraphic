@@ -15,7 +15,7 @@ namespace testcase {
 
     void circle1(int w = 50, int h = 50);
 
-    void circle2(int w = 50, int h = 50); // Fall
+    void circle2(int w = 50, int h = 50);
 
 }
 

@@ -48,7 +48,7 @@ namespace graphic {
         if (r < 0) throw std::invalid_argument("graphic::Circle::Circle: Radius must >= 0, got " + std::to_string(r));
     }
 
-    Screen& operator<<(Screen& screen, const Circle*& line) {
+    Screen& operator<<(Screen& screen, const Circle* line) {
         if (line == nullptr) return screen;
         return line->displayOn(screen);
     }

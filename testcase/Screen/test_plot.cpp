@@ -78,6 +78,7 @@ namespace testcase {
                   << scr.to_text("plot3.sin.txt")
                   << color::RESET
                   << " for large image" << std::endl;
+        std::cout << "------------------" << std::endl;
     }
 
 }
