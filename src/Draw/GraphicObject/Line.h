@@ -19,7 +19,7 @@ namespace graphic {
     public:
         Line(int x0, int y0, int x1, int y1);
 
-        friend Screen& operator<<(Screen& screen, const Line*& line);
+        friend Screen& operator<<(Screen& screen, const Line* line);
 
         friend Screen& operator<<(Screen& screen, const Line& line);
 
