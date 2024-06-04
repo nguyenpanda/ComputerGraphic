@@ -35,7 +35,7 @@ namespace graphic {
         ScreenSetting* setting = nullptr;
 
     public:
-        Screen(int width, int height);
+        Screen(int width = 1, int height = 1);
 
         Screen(const Screen& other);
 
