@@ -34,6 +34,10 @@ namespace graphic {
 
         virtual std::string to_file(const Screen& screen) = 0;
 
+        virtual Screen& operator>>(Screen& screen) const = 0;
+
+        virtual Screen& to_screen() const = 0;
+
     };
 
 }
