@@ -17,6 +17,8 @@ namespace testcase {
 
     void bitmap2();
 
+    void bitmap3();
+
 }
 
 #endif //COMPUTERGRAPHIC_TEST_BITMAP_H
