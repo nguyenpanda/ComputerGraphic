@@ -77,6 +77,11 @@ namespace graphic {
 //        setting = other.setting;
     }
 
+    void Screen::resize(int w, int h) {
+        deletePixels();
+        createPixels(w, h);
+    }
+
     Pixel Screen::point(int x, int y) const {
         checkRange(x, y);
         return pixels[y][x];
@@ -261,9 +266,9 @@ namespace graphic {
     }
 
 // Image
-    std::string Screen::export_image(std::string filename) const {
+    std::string Screen::export_image(const std::string& filename) const {
         size_t found = filename.rfind('.');
-        std::string extension = "";
+        std::string extension;
         if (found != std::string::npos) {
             extension = filename.substr(found, std::string::npos);
         }
@@ -304,7 +309,7 @@ namespace graphic {
     }
 
 // Friend
-    std::ostream &operator<<(std::ostream &os, const Screen &srn) {
+    std::ostream &operator<<(std::ostream& os, const Screen &srn) {
         mapfunc map_func;
         if (dynamic_cast<std::ofstream *>(&os) or dynamic_cast<std::fstream *>(&os)) {
             map_func = MapFunc::std_map;
@@ -323,6 +328,10 @@ namespace graphic {
             os << color::RESET << '\n';
         }
         return os;
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Screen* srn) {
+        return os << *srn;
     }
 
 } // graphic
