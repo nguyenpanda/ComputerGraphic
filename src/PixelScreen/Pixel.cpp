@@ -35,6 +35,14 @@ namespace graphic {
         r = _r, g = _g, b = _b;
     }
 
+    void Pixel::set(int gray_value) {
+        r = g = b = gray_value;
+    }
+
+    void Pixel::to_gray() {
+        set(this->gray());
+    }
+
     uint8_t Pixel::R() const {
         return r;
     }

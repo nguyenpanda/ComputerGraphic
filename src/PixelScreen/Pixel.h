@@ -35,6 +35,10 @@ namespace graphic {
 
         void set(int _r, int _g, int _b);
 
+        void set(int gray_value);
+
+        void to_gray();
+
         [[nodiscard]] [[maybe_unused]] uint8_t R() const;
 
         [[nodiscard]] [[maybe_unused]] uint8_t G() const;
