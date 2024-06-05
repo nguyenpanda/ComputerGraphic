@@ -95,18 +95,18 @@ namespace graphic {
         char header_data[54];
         file.read(header_data, 54);
 
-        int w = *((int*) &header_data[22]), h = *((int*) &header_data[18]);
+        int width = *((int*) &header_data[18]), height = *((int*) &header_data[22]);
+        const int padding = (4 - (3 * width) % 4) % 4;
 
-        char temp;
-        char r, g, b;
-        int padding = (4 - (3 * w) % 4) % 4;
-        screen.resize(w, h);
-        for (int j = h - 1; j > -1; --j) {
-            for (int i = 0; i < w; ++i) {
+        screen.resize(width, height);
+
+        char r, g, b, temp;
+        for (int j = height - 1; j > -1; --j) {
+            for (int i = 0; i < width; ++i) {
                 file.read(&b, 1);
                 file.read(&g, 1);
                 file.read(&r, 1);
-                if (i == w - 1) file.read(&temp, padding);
+                if (i == width - 1) file.read(&temp, padding);
                 screen.pixel(i, j).set(r, g, b);
             }
         }
