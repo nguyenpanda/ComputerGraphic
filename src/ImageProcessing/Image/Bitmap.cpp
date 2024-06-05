@@ -27,7 +27,7 @@ namespace graphic {
     Screen& Bitmap::operator>>(Screen* screen) const {
         return to_screen(*screen);
     }
-    
+
     std::string Bitmap::to_file(const Screen& screen) {
         int w, h;
         screen.shape(w, h);
@@ -95,7 +95,15 @@ namespace graphic {
         char header_data[54];
         file.read(header_data, 54);
 
-        int width = *((int*) &header_data[18]), height = *((int*) &header_data[22]);
+        //@formatter:off
+        int offset_to_pixel = *((int*) &header_data[10]);
+        int width           = *((int*) &header_data[18]);
+        int height          = *((int*) &header_data[22]);
+        int bit_per_pixel   = *((int*) &header_data[28]);
+        //@formatter:on
+
+        bool isAlpha = bit_per_pixel == 32;
+        file.seekg(offset_to_pixel, std::ios_base::beg);
         const int padding = (4 - (3 * width) % 4) % 4;
 
         screen.resize(width, height);
