@@ -24,16 +24,6 @@ namespace cmdline {
     void custom_func() {
 
         // ADD YOUR CODE HERE
-        graphic::Screen src(28,28);
-        graphic::Screen temp_src = src;
-        temp_src.drawrectangle(5,5,10,12);
-        //graphic::Screen temp_src2(28,28);
-        //temp_src.drawrectangle(5,5,10,10);
-        //temp_src2 = src;
-        //src.drawrectangle(5,5,10,10);
-        src.drawrectangle(0,0,5,5);
-        cout << src;
-
 
     }
 
