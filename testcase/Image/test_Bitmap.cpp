@@ -15,6 +15,7 @@ namespace testcase {
         bitmap1();
         bitmap2();
         bitmap3();
+        bitmap4();
     }
 
     void bitmap0() {
@@ -103,6 +104,28 @@ namespace testcase {
         }
 
         std::cout << color::GREEN << (graphic::Bitmap("bitmap3_0") << scr) << color::RESET << std::endl;
+    }
+
+    void bitmap4() {
+        std::cout << color::YELLOW << "testcase::bitmap 4" << color::RESET << std::endl;
+        graphic::Screen scr;
+
+        std::string filename = "snail";
+
+        try {
+            graphic::Bitmap(filename) >> scr;
+            int w, h;
+            scr.shape(w, h);
+            scr.gray_image();
+            std::cout << color::GREEN << (graphic::Bitmap(filename + "_gray") << scr) << color::RESET << std::endl;
+        } catch (std::invalid_argument& e) {
+            std::cout << "\t->" << e.what() << std::endl;
+            std::cout << "\t->Make sure "
+                      << color::RED << filename << color::RESET
+                      << " already in directory "
+                      << color::RED << std::filesystem::current_path() << color::RESET
+                      << std::endl;
+        }
     }
 
 }
