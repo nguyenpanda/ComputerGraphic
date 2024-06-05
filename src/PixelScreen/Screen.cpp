@@ -14,7 +14,7 @@ namespace graphic {
         createPixels(width, height);
     }
 
-    Screen::Screen(const Screen &other) {
+    Screen::Screen(const Screen& other) {
         copy_image(other);
         copy_setting(other);
     }
@@ -32,28 +32,28 @@ namespace graphic {
         return height;
     }
 
-    ScreenSetting *Screen::setUp() const {
+    ScreenSetting* Screen::setUp() const {
         return setting;
     }
 
-    void Screen::shape(int &_width, int &_height) const {
+    void Screen::shape(int& _width, int& _height) const {
         _width = width;
         _height = height;
     }
 
-    Screen &Screen::operator=(const Screen &other) {
+    Screen& Screen::operator=(const Screen& other) {
         if (this == &other) return *this;
         copy(other);
         return *this;
     }
 
-    void Screen::copy(const Screen &other) {
+    void Screen::copy(const Screen& other) {
         if (this == &other) return;
         copy_image(other);
         copy_setting(other);
     }
 
-    void Screen::copy_image(const Screen &other) {
+    void Screen::copy_image(const Screen& other) {
         if (this == &other) return;
 
         deletePixels();
@@ -67,13 +67,13 @@ namespace graphic {
         }
     }
 
-    void Screen::copy_setting(const Screen &other) {
+    void Screen::copy_setting(const Screen& other) {
         if (this == &other) return;
         setting = new ScreenSetting(other.setting->map_char,
                                     other.setting->map_func,
                                     other.setting->color_func,
                                     other.setting->ind_func
-                );
+        );
 //        setting = other.setting;
     }
 
@@ -87,7 +87,7 @@ namespace graphic {
         return pixels[y][x];
     }
 
-    Pixel &Screen::pixel(int x, int y) {
+    Pixel& Screen::pixel(int x, int y) {
         checkRange(x, y);
         return pixels[y][x];
     }
@@ -95,7 +95,7 @@ namespace graphic {
     void Screen::resetX(int x) {
         checkRange(x, 1);
 
-        Pixel *temp;
+        Pixel* temp;
         for (int y = 0; y < height; ++y) {
             temp = &pixels[y][x];
             temp->r = temp->g = temp->b = 0;
@@ -105,7 +105,7 @@ namespace graphic {
     void Screen::resetY(int y) {
         checkRange(1, y);
 
-        Pixel *temp;
+        Pixel* temp;
         for (int x = 0; x < width; ++x) {
             temp = &pixels[y][x];
             temp->r = temp->g = temp->b = 0;
@@ -118,10 +118,10 @@ namespace graphic {
         }
     }
 
-    void Screen::changeAt(const Pixel &pixel, int x, int y) {
+    void Screen::changeAt(const Pixel& pixel, int x, int y) {
         checkRange(x, y);
 
-        Pixel *temp = &pixels[y][x];
+        Pixel* temp = &pixels[y][x];
         temp->r = pixel.r;
         temp->g = pixel.g;
         temp->b = pixel.b;
@@ -137,7 +137,7 @@ namespace graphic {
         pixels[y][x] = Pixel(r, g, b);
     }
 
-    void Screen::changeAt(const int (&RGB_X_Y)[5]) {
+    void Screen::changeAt(const int (& RGB_X_Y)[5]) {
         int x = RGB_X_Y[3];
         int y = RGB_X_Y[4];
         checkRange(x, y);
@@ -145,7 +145,7 @@ namespace graphic {
         pixels[y][x] = Pixel(RGB_X_Y[0], RGB_X_Y[1], RGB_X_Y[2]);
     }
 
-    void Screen::fill(const std::vector<int> &vec) {
+    void Screen::fill(const std::vector<int>& vec) {
         if (vec.size() < width * height)
             throw std::range_error(
                     "Vector's size too small to fill the graphic::Screen object, got " + std::to_string(vec.size())
@@ -160,7 +160,7 @@ namespace graphic {
     }
 
 // File output
-    std::string Screen::to_text(const std::string &filename) const {
+    std::string Screen::to_text(const std::string& filename) const {
         std::ofstream file(filename);
         if (!file.is_open()) {
             throw std::runtime_error("Failed to open file: " + filename);
@@ -208,7 +208,7 @@ namespace graphic {
     }
 
 // Draw
-    void Screen::plot(int xStart, int xEnd, int (*f)(int)) {
+    void Screen::plot(int xStart, int xEnd, int (* f)(int)) {
         int N = xEnd - xStart + 1;
         std::vector<int> x(N), y(N);
 
@@ -218,7 +218,7 @@ namespace graphic {
         });
 
         int shift = *std::min_element(y.begin(), y.end());
-        std::transform(y.begin(), y.end(), y.begin(), [shift](int &new_y) {
+        std::transform(y.begin(), y.end(), y.begin(), [shift](int& new_y) {
             return new_y - shift;
         });
 
@@ -227,7 +227,7 @@ namespace graphic {
         }
     }
 
-    void Screen::discretePlot(int xStart, int xEnd, int (*f)(int)) {
+    void Screen::discretePlot(int xStart, int xEnd, int (* f)(int)) {
         int N = xEnd - xStart + 1;
         std::vector<int> x(N), y(N);
 
@@ -237,7 +237,7 @@ namespace graphic {
         });
 
         int shift = *std::min_element(y.begin(), y.end());
-        std::transform(y.begin(), y.end(), y.begin(), [shift](int &new_y) {
+        std::transform(y.begin(), y.end(), y.begin(), [shift](int& new_y) {
             return new_y - shift;
         });
 
@@ -253,7 +253,7 @@ namespace graphic {
         if (hasCenter) changeAt(255, 255, 255, x, y);
         try {
             this << Circle(x, y, r);
-        } catch (std::invalid_argument &e) {
+        } catch (std::invalid_argument& e) {
             std::cerr << e.what() << std::endl;
         }
     }
@@ -290,14 +290,16 @@ namespace graphic {
 
 // Private
     void Screen::checkRange(int x, int y) const {
-        if (x < 0 or x >= width) throw std::out_of_range("w=" + std::to_string(width) + ", x out of range, got " + std::to_string(x));
-        if (y < 0 or y >= height) throw std::out_of_range("h=" + std::to_string(height) + ", y out of range, got " + std::to_string(y));
+        if (x < 0 or x >= width)
+            throw std::out_of_range("w=" + std::to_string(width) + ", x out of range, got " + std::to_string(x));
+        if (y < 0 or y >= height)
+            throw std::out_of_range("h=" + std::to_string(height) + ", y out of range, got " + std::to_string(y));
     }
 
     void Screen::createPixels(int w, int h) {
         width = w;
         height = h;
-        pixels = new Pixel *[h];
+        pixels = new Pixel* [h];
         for (int i = 0; i < h; ++i) {
             pixels[i] = new Pixel[w];
             for (int j = 0; j < w; ++j) {
@@ -317,9 +319,11 @@ namespace graphic {
     }
 
 // Friend
-    std::ostream &operator<<(std::ostream& os, const Screen &srn) {
+    std::ostream& operator<<(std::ostream& os, const Screen& srn) {
         mapfunc map_func;
-        if (dynamic_cast<std::ofstream *>(&os) or dynamic_cast<std::fstream *>(&os)) {
+        std::stringstream ss;
+
+        if (dynamic_cast<std::ofstream*>(&os) or dynamic_cast<std::fstream*>(&os)) {
             map_func = MapFunc::std_map;
         } else {
             map_func = srn.setting->getMapFunc();
@@ -331,11 +335,11 @@ namespace graphic {
 
         for (int y = 0; y < srn.height; ++y) {
             for (int x = 0; x < srn.width; ++x) {
-                map_func(os, srn.pixels[y][x], map_char, index_func, color_func);
+                map_func(ss, srn.pixels[y][x], map_char, index_func, color_func);
             }
-            os << color::RESET << '\n';
+            ss << color::RESET << '\n';
         }
-        return os;
+        return os << ss.str();
     }
 
     std::ostream& operator<<(std::ostream& os, const Screen* srn) {
