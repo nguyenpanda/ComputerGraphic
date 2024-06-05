@@ -84,6 +84,11 @@ namespace graphic {
         // File
         std::string to_text(const std::string& filename) const; // NOLINT(*-use-nodiscard)
 
+        // Image
+        void gray_image();
+
+        std::string export_image(const std::string& filename) const; // NOLINT(*-use-nodiscard)
+
         // Draw
         template<size_t N, size_t M>
         void draw(int (& x)[N], int (& y)[M], size_t startIdx, size_t size) {
@@ -111,9 +116,6 @@ namespace graphic {
 
         // Rectangle
         void drawrectangle(int x, int y, int w, int h);
-
-        // Image
-        std::string export_image(const std::string& filename) const;
 
     private:
         void checkRange(int x, int y) const;

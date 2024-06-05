@@ -184,6 +184,29 @@ namespace graphic {
         return (std::filesystem::current_path() / filename).string();
     }
 
+// Image
+    void Screen::gray_image() {
+        for (int j = 0; j < height; ++j) {
+            for (int i = 0; i < width; ++i) {
+                pixels[j][i].to_gray();
+            }
+        }
+    }
+
+    std::string Screen::export_image(const std::string& filename) const {
+        size_t found = filename.rfind('.');
+        std::string extension;
+        if (found != std::string::npos) {
+            extension = filename.substr(found, std::string::npos);
+        }
+
+        if (extension == ".bmp") {
+            return (Bitmap(filename) << this);
+        } else {
+            return (Bitmap(filename) << this);
+        }
+    }
+
 // Draw
     void Screen::plot(int xStart, int xEnd, int (*f)(int)) {
         int N = xEnd - xStart + 1;
@@ -265,25 +288,10 @@ namespace graphic {
         this << Rectangle(x, y, w, h);
     }
 
-// Image
-    std::string Screen::export_image(const std::string& filename) const {
-        size_t found = filename.rfind('.');
-        std::string extension;
-        if (found != std::string::npos) {
-            extension = filename.substr(found, std::string::npos);
-        }
-
-        if (extension == ".bmp") {
-            return (Bitmap(filename) << this);
-        } else {
-            return (Bitmap(filename) << this);
-        }
-    }
-
 // Private
     void Screen::checkRange(int x, int y) const {
-        if (x < 0 or x >= width) throw std::out_of_range("x out of range, got " + std::to_string(x));
-        if (y < 0 or y >= height) throw std::out_of_range("y out of range, got " + std::to_string(y));
+        if (x < 0 or x >= width) throw std::out_of_range("w=" + std::to_string(width) + ", x out of range, got " + std::to_string(x));
+        if (y < 0 or y >= height) throw std::out_of_range("h=" + std::to_string(height) + ", y out of range, got " + std::to_string(y));
     }
 
     void Screen::createPixels(int w, int h) {
