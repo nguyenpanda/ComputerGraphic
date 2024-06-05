@@ -41,8 +41,8 @@ namespace graphic {
             0x42, 0x4D,             // "BM"
             0, 0, 0, 0,             // __VARIABLE [2, 5]: image size with header
             0x00, 0x00, 0x00, 0x00, // reversed
-            0x36, 0x00, 0x00, 0x00, // offset of pixel (position that data is start)
-            0x28, 0x00, 0x00, 0x00, // DIB header size
+            0x36, 0x00, 0x00, 0x00, // __VARIABLE [10, 13]: offset of pixel (position that data is start)
+            0x28, 0x00, 0x00, 0x00, // __VARIABLE [14, 17]: DIB header size
             0, 0, 0, 0,             // __VARIABLE [18, 21]: image width
             0, 0, 0, 0,             // __VARIABLE [22, 25]: image height
             0x01, 0x00,             // color planes
@@ -109,15 +109,29 @@ namespace graphic {
         screen.resize(width, height);
 
         char r, g, b, temp;
-        for (int j = height - 1; j > -1; --j) {
-            for (int i = 0; i < width; ++i) {
-                file.read(&b, 1);
-                file.read(&g, 1);
-                file.read(&r, 1);
-                if (i == width - 1) file.read(&temp, padding);
-                screen.pixel(i, j).set(r, g, b);
+        if (isAlpha) {
+            char a;
+            for (int j = height - 1; j > -1; --j) {
+                for (int i = 0; i < width; ++i) {
+                    file.read(&b, 1);
+                    file.read(&g, 1);
+                    file.read(&r, 1);
+                    file.read(&a, 1);
+                    screen.pixel(i, j).set(r, g, b, a);
+                }
+            }
+        } else {
+            for (int j = height - 1; j > -1; --j) {
+                for (int i = 0; i < width; ++i) {
+                    file.read(&b, 1);
+                    file.read(&g, 1);
+                    file.read(&r, 1);
+                    if (i == width - 1) file.read(&temp, padding);
+                    screen.pixel(i, j).set(r, g, b);
+                }
             }
         }
+
 
         file.close();
         return screen;
