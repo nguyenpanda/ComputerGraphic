@@ -39,6 +39,8 @@ namespace graphic {
 
         void set(int _r, int _g, int _b, int _a);
 
+        void set(int gray_value);
+
         void set_r(int _r);
 
         void set_g(int _g);
@@ -46,8 +48,6 @@ namespace graphic {
         void set_b(int _b);
 
         void set_alpha(int _a);
-
-        void set(int gray_value);
 
         void to_gray();
 
