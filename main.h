@@ -42,6 +42,13 @@ void loadBar(int _ms = 2000, char _char = 'X', int step = 5) {
 
 namespace cmdline {
 
+    void execute_all_arguments(void (* func)(std::string), int& i, int argc, char* argv[]) {
+        i++;
+        while (i < argc && argv[i][0] != '-') {
+            executeTime(func, std::string(argv[i++]));
+        }
+    }
+
     void arg_info() {
         //@formatter:off
         std::cout
@@ -73,7 +80,8 @@ namespace cmdline {
                 << color::MAGENTA << "--ta" << color::RESET << " <application_name>:\n"
                 << color::YELLOW << "\t<application_name>" << color::RESET << " parameters:\n"
                 //@formatter:off
-                << "\t\t-> " << color::CYAN << "-mnist   " << color::RESET << "<file1,...>   " << ": display digits in mnist dataset(s)\n"
+                << "\t\t-> " << color::CYAN << "-mnist     " << color::RESET << "<file1,...>   " << ": display digits in .csv mnist dataset(s)\n"
+                << "\t\t-> " << color::CYAN << "-bmp_mnist " << color::RESET << "<file1,...>   " << ": save digits as .bmp in .csv mnist dataset(s)\n"
                 //@formatter:on
                 << std::endl;
 
@@ -96,9 +104,20 @@ namespace cmdline {
     void specific_testapp(int& i, int argc, char* argv[]) {
         ++i;
         while (i < argc && (std::string(argv[i]) != "--")) {
-            if (std::string(argv[i++]) == "-mnist") {
-                while (i < argc and argv[i][0] != '-')
-                    executeTime(AI::test_animation, std::string(argv[i++]));
+            if (std::string(argv[i]) == "-mnist") {
+                execute_all_arguments(AI::test_mnist_animation, i, argc, argv);
+            } else if (std::string(argv[i]) == "-bmp_mnist") {
+                execute_all_arguments(AI::test_mnist_bitmap, i, argc, argv);
+            } else {
+                if (argv[i][0] == '-') {
+                    std::cout << color::YELLOW << argv[i++]
+                              << color::RED << " don't match any argument, `--h` for more information" << color::RESET
+                              << std::endl;
+                } else {
+                    std::cout << color::RED << "Argument after '--ta' must begin with '-', got "
+                              << color::YELLOW << argv[i++] << color::RESET
+                              << std::endl;
+                }
             }
         }
         --i;
