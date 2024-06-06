@@ -33,11 +33,13 @@ Additionally, the program should be able to read images in PNG and BMP formats f
     * [Plotting](#plotting)
       * [Discrete plot](#discrete-plot)
       * [Continuous plot](#continuous-plot)
+    * [Export text `.txt` file](#export-text-txt-file)
   * [Animation using `cursor` class](#animation-using-cursor-class)
   * [Import & Export image](#import--export-image)
     * [Bitmap (.bmp)](#bitmap-bmp)
       * [Export bitmap](#export-bitmap)
       * [Import bitmap](#import-bitmap)
+      * [Example](#example)
 * [Project implementation](#project-implementation)
 * [License](#license)
 * [References](#references)
@@ -206,9 +208,60 @@ std::cout << scr;
   </tr>
 </table>
 
+### Export text `.txt` file
+
+[//]: # (@formatter:off)
+```C++
+graphic::Screen scr(w, 51);
+
+scr.setUp()->setMapChar(graphic::mapchar::std_dot);
+
+scr.plot(0, w - 1,[](int x) -> int {
+    return (int) (25 * std::sin(0.2 * (x - 2)));
+});
+
+std::cout << scr;
+
+std::ofstream file("write_ofstream0.txt");
+file << scr;
+file.close();
+```
+[//]: # (@formatter:on)
+
+<table style="width:100%; text-align:center;">
+  <tr>
+    <td style="vertical-align:middle;">
+      <figure>
+        <img src="docs/image/readme/write_ofstream0_terminal.png" alt="Line result" style="max-width:100%; height:auto; min-height: 200px"/>
+        <figcaption>Result in Terminal</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr>
+    <td style="vertical-align:middle;">
+      <figure>
+        <img src="docs/image/readme/write_ofstream0_file.png" alt="Circle result" style="max-width:100%; height:100%; min-height: 200px"/>
+        <figcaption>Result in .txt file</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
+
 ## Animation using `cursor` class
 
+This is some example of animating using `curesor` class.
+Get more information on usage
+at [here](testcase/Screen/test_changeAt.cpp) & [here](test_application/digit_recognizer/Dataset.cpp)
+
+```bash
+./ComputerGraphic --tc changeAt
+./ComputerGraphic --ta -mnist 199.csv
+```
+
 <table style="width:100%;">
+  <caption style="caption-side: top; text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">
+    Result of 2 bash commands
+  </caption>
   <tr>
     <td>
       <a href="docs/image/readme/changAt_animation.mov">
@@ -240,6 +293,60 @@ graphic::Bitmap("filename.bmp") << scr;
 graphic::Bitmap("filename") >> scr;
 graphic::Bitmap("filename.bmp") >> scr;
 ```
+
+#### Example
+
+```C++
+graphic::Screen scr;
+
+graphic::Bitmap("Steveeeeeee") >> scr;
+
+int w, h;
+scr.shape(w, h);
+
+for (int j = 0; j < h; ++j) {
+    for (int i = 0; i < w; ++i) {
+        // Set the green component of all pixels to 100
+        scr.pixel(i, j).set_g(100); // Similar to red & blue
+    }
+}
+
+graphic::Bitmap("Emotional Damage_green=100") << scr;
+```
+
+<table style="width:100%;">
+  <caption style="caption-side: top; text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">
+    Bitmap Images from graphic::Bitmap
+  </caption>
+  <tr>
+    <td>
+      <figure>
+        <img src="docs/image/readme/EmotionalDamage_origin.bmp" alt="EmotionalDamage_origin"/>
+        <figcaption>Original Image</figcaption>
+      </figure>
+    </td>
+    <td>
+      <figure>
+        <img src="docs/image/readme/EmotionalDamage_red=0.bmp" alt="EmotionalDamage_red=0"/>
+        <figcaption>Red Channel Removed</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <figure>
+        <img src="docs/image/readme/EmotionalDamage_green=0.bmp" alt="EmotionalDamage_green=0"/>
+        <figcaption>Green Channel Removed</figcaption>
+      </figure>
+    </td>
+    <td>
+      <figure>
+        <img src="docs/image/readme/EmotionalDamage_blue=0.bmp" alt="EmotionalDamage_blue=0"/>
+        <figcaption>Blue Channel Removed</figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
 
 # Project implementation
 
