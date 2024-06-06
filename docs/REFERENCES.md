@@ -13,6 +13,7 @@
     * [Bitmap (.BMP)](#bitmap-bmp)
     * [Portable Network Graphics (.PNG)](#portable-network-graphics-png)
     * [Joint Photographic Experts Group (.JPG/.JPEG)](#joint-photographic-experts-group-jpgjpeg)
+  * [README references](#readme-references)
 <!-- TOC -->
 [//]: # (@formatter:on)
 
@@ -113,3 +114,8 @@ Destination: `src/ImageProcessing/Image/Jpg.h`
 [jpg_1]: https://en.wikipedia.org/wiki/JPEG "JPEG Wiki"
 [jpg_2]: https://stats.stackexchange.com/questions/440144/which-image-format-is-better-for-machine-learning-png-jpg-or-other "PNG JPG format, which is better for ML"
 [//]: # (@formatter:on)
+
+## README references
+- [My grandmother runs faster than your code] [Steven] - Joma Tech (ft. Steven He) - YouTube
+
+[Steven]: https://youtu.be/314OLE6mKOo?si=VetmQjFqy82UsRw4&t=135 "Steven"
