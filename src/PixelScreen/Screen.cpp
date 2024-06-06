@@ -323,10 +323,13 @@ namespace graphic {
         mapfunc map_func;
         std::stringstream ss;
 
+        std::string end_row_str;
         if (dynamic_cast<std::ofstream*>(&os) or dynamic_cast<std::fstream*>(&os)) {
             map_func = MapFunc::std_map;
+            end_row_str = "\n";
         } else {
             map_func = srn.setting->getMapFunc();
+            end_row_str = color::RESET + "\n";
         }
 
         std::string map_char = srn.setting->getMapChar();
@@ -337,7 +340,7 @@ namespace graphic {
             for (int x = 0; x < srn.width; ++x) {
                 map_func(ss, srn.pixels[y][x], map_char, index_func, color_func);
             }
-            ss << color::RESET << '\n';
+            ss << end_row_str;
         }
         return os << ss.str();
     }
