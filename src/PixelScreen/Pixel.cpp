@@ -51,6 +51,18 @@ namespace graphic {
         a = (_a > 255) ? 255 : _a;
     }
 
+    void Pixel::set_r(int _r) {
+        r = _r;
+    }
+
+    void Pixel::set_g(int _g) {
+        g = _g;
+    }
+
+    void Pixel::set_b(int _b) {
+        b = _b;
+    }
+
     void Pixel::set_alpha(int _a) {
         a = _a;
     }
