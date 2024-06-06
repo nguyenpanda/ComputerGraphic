@@ -1,6 +1,9 @@
 [Computer Graphic](https://github.com/nguyenpanda/ComputerGraphic)
 ======================
 ---
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 I have always been fascinated by how computer screens work,
 computer graphics, and how images are displayed and stored on computers.
 This curiosity inspired me to undertake this project.
@@ -150,31 +153,57 @@ scr.drawcircle(8, 8, 0);
 std::cout << scr;
 ```
 
+<table style="width:100%;">
+  <tr>
+    <td>
+      <img src="docs/image/readme/line.png" alt="Line result">
+    </td>
+    <td>
+      <img src="docs/image/readme/circle.png" alt="Circle result">
+    </td>
+  </tr>
+</table>
+
 ### Plotting
 
 In this example, we will plot `f(x) = 0.01*x^3 - 3x` in range `[-16, 16]`.
 
 #### Discrete plot
 
+[//]: # (@formatter:off)
 ```C++
 // Screen::discretePlot(int x_start, int x_end, int (* f)(int))
 scr.discretePlot(-16, 16,[](int x) -> int {
-return (int) (std::pow(x, 3) / 100 - 3 * x);
+    return (int) (std::pow(x, 3) / 100 - 3 * x);
 });
 
 std::cout << scr;
 ```
+[//]: # (@formatter:on)
 
 #### Continuous plot
 
+[//]: # (@formatter:off)
 ```C++
 // Screen::plot(int x_start, int x_end, int (* f)(int))
 scr.plot(-16, 16,[](int x) -> int {
-return (int) (std::pow(x, 3) / 100 - 3 * x);
+    return (int) (std::pow(x, 3) / 100 - 3 * x);
 });
 
 std::cout << scr;
 ```
+[//]: # (@formatter:on)
+
+<table style="width:100%;">
+  <tr>
+    <td>
+      <img src="docs/image/readme/discreteplot.png" alt="Line result">
+    </td>
+    <td>
+      <img src="docs/image/readme/plot.png" alt="Circle result">
+    </td>
+  </tr>
+</table>
 
 ## Import & Export image
 
