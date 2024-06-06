@@ -76,7 +76,7 @@ namespace testcase {
 
         graphic::Screen scr(w, h);
 
-        std::string move_cursor = "\033[" + std::to_string(h) + "F";
+        std::string move_cursor = cursor::preline(h);
         std::cout << "------------------" << std::endl;
 
         for (int i = h - 1; i > -1; --i) {

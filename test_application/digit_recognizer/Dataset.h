@@ -22,22 +22,29 @@ namespace AI {
     private:
         std::vector<std::vector<int>*>* feature = nullptr;
         std::vector<int>* target = nullptr;
+        std::vector<int>* errorIdx;
         std::string path;
 
     public:
-
         explicit Dataset(std::string csv_path);
 
         ~Dataset();
 
-        std::vector<int>& operator[](int idx);
+        std::vector<int>& operator[](int idx) const;
 
-        void print();
+        [[nodiscard]] std::vector<int>& get_error() const;
+
+        void shape(int& num_of_data, int& num_of_feature) const;
+
+        [[nodiscard]] int num_error() const;
+
+        void print() const;
 
     };
 
-    void test_animation(std::string csv);
+    void test_mnist_animation(std::string csv);
 
+    void test_mnist_bitmap(std::string csv);
 }
 
 #endif //COMPUTERGRAPHIC_DATASET_H

@@ -9,6 +9,7 @@
 #include <cstdint>
 
 class cursor {
+public:
     //@formatter:off
     static std::string up(int n);
     static std::string down(int n);
