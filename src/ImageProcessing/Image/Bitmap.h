@@ -17,8 +17,6 @@ namespace graphic {
 
         std::string operator<<(const Screen* screen) override;
 
-        std::string operator<<(const Screen*& screen) override;
-
         Screen& operator>>(Screen& screen) const override;
 
         Screen& operator>>(Screen* screen) const override;

@@ -16,10 +16,6 @@ namespace graphic {
         return to_file(*screen);
     }
 
-    std::string Bitmap::operator<<(const Screen*& screen) {
-        return to_file(*screen);
-    }
-
     Screen& Bitmap::operator>>(Screen& screen) const {
         return to_screen(screen);
     }

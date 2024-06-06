@@ -27,8 +27,6 @@ namespace graphic {
 
         virtual std::string operator<<(const Screen* screen) = 0;
 
-        virtual std::string operator<<(const Screen*& screen) = 0;
-
         virtual Screen& operator>>(Screen& screen) const = 0;
 
         virtual Screen& operator>>(Screen* screen) const = 0;
