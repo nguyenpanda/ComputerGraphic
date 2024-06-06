@@ -33,6 +33,7 @@ Additionally, the program should be able to read images in PNG and BMP formats f
     * [Plotting](#plotting)
       * [Discrete plot](#discrete-plot)
       * [Continuous plot](#continuous-plot)
+  * [Animation using `cursor` class](#animation-using-cursor-class)
   * [Import & Export image](#import--export-image)
     * [Bitmap (.bmp)](#bitmap-bmp)
       * [Export bitmap](#export-bitmap)
@@ -201,6 +202,23 @@ std::cout << scr;
     </td>
     <td>
       <img src="docs/image/readme/plot.png" alt="Circle result">
+    </td>
+  </tr>
+</table>
+
+## Animation using `cursor` class
+
+<table style="width:100%;">
+  <tr>
+    <td>
+      <a href="docs/image/readme/changAt_animation.mov">
+        <img src="docs/image/readme/changAt_animation.gif" style="width:256px; height:256px;" alt="changAt_animation"/>
+      </a>
+    </td>
+    <td>
+      <a href="docs/image/readme/mnist_animation.mov">
+        <img src="docs/image/readme/mnist_animation.gif" style="width:256px; height:256px;" alt="mnist_animation"/>
+      </a>
     </td>
   </tr>
 </table>
