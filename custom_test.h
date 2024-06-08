@@ -19,6 +19,7 @@
 
 using std::cout;
 using std::endl;
+
 namespace cmdline {
 
     void custom_func() {
