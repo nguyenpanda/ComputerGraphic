@@ -39,12 +39,14 @@ namespace graphic {
          * @return A string indicating the path of the exported file.
          */
         std::string operator<<(const Screen* screen) override;
+
         /**
          * @brief Imports image content from a file into a Screen object.
          * @param screen A reference to the Screen object to modify with image data.
          * @return A reference to the modified Screen object.
          */
         Screen& operator>>(Screen& screen) const override;
+
         /**
          * @brief Imports image content from a file into a Screen object using a pointer.
          * @param screen A pointer to the Screen object to modify with image data.
