@@ -49,6 +49,15 @@ namespace cmdline {
         }
     }
 
+    void execute_all_arguments(void (* func)(), int& i, int argc, char* argv[]) {
+        std::cout << "execute all arg func" << i << ' ' << argc << std::endl;
+        while (i < argc) {
+            executeTime(func);
+            i++;
+        }
+    }
+
+
     void arg_info() {
         //@formatter:off
         std::cout
@@ -108,6 +117,8 @@ namespace cmdline {
                 execute_all_arguments(AI::test_mnist_animation, i, argc, argv);
             } else if (std::string(argv[i]) == "-bmp_mnist") {
                 execute_all_arguments(AI::test_mnist_bitmap, i, argc, argv);
+            } else if (std::string(argv[i]) == "-collision") {
+                execute_all_arguments(Physic::gravity, i, argc, argv);
             } else {
                 if (argv[i][0] == '-') {
                     std::cout << color::YELLOW << argv[i++]
