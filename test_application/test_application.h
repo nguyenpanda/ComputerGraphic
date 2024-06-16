@@ -6,6 +6,7 @@
 #define COMPUTERGRAPHIC_TEST_APPLICATION_H
 
 #include "digit_recognizer/Dataset.h"
-#include "physic/Collision.h"
+#include "physic/Bouncing.h"
+#include "physic/Orbit.h"
 
 #endif //COMPUTERGRAPHIC_TEST_APPLICATION_H
