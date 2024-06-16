@@ -10,7 +10,7 @@ This curiosity inspired me to undertake this project.
 
 Currently, my goal for this project is to render images such as circles, lines, and bijective functions,
 and then output these images in PNG and BMP formats.
-Additionally, the program should be able to read images in PNG and BMP formats for processing within the code.
+Additionally, the program should be able to read images in JPEG and BMP formats for processing within the code.
 
 # Table of contents
 
@@ -258,23 +258,39 @@ at [here](testcase/Screen/test_changeAt.cpp) & [here](test_application/digit_rec
 ./ComputerGraphic --ta -mnist 199.csv
 ```
 
-<table style="width:100%;">
-  <caption style="caption-side: top; text-align: center; font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">
-    Result of 2 bash commands
-  </caption>
-  <tr>
-    <td>
-      <a href="docs/image/readme/changAt_animation.mov">
-        <img src="docs/image/readme/changAt_animation.gif" style="width:256px; height:256px;" alt="changAt_animation"/>
-      </a>
-    </td>
-    <td>
-      <a href="docs/image/readme/mnist_animation.mov">
-        <img src="docs/image/readme/mnist_animation.gif" style="width:256px; height:256px;" alt="mnist_animation"/>
-      </a>
-    </td>
-  </tr>
-</table>
+<div style="display: flex; justify-content: space-between;">
+  <div style="flex-basis: 48%; text-align: center;">
+    <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">--tc changeAt</p>
+    <img src="docs/image/readme/changAt_animation.gif" style="width: 100%; height: auto;" alt="changAt_animation"/>
+  </div>
+  <div style="flex-basis: 48%; text-align: center;">
+    <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">--ta -mnist 199.csv</p>
+    <img src="docs/image/readme/mnist_animation.gif" style="width: 100%; height: auto;" alt="mnist_animation"/>
+  </div>
+</div>
+
+
+Additionally, it can be used to simulate physical phenomenons.
+
+```bash
+./ComputerGraphic --ta -bouncing
+./ComputerGraphic --ta -orbit
+```
+
+The left side simulates the motion of a rigid object under gravity with fluid resistance, 
+while the right side simulates the motion of an object experiencing only gravitational force.
+
+<div style="display: flex; justify-content: space-between;">
+  <div style="flex-basis: 48%;">
+    <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Bouncing ball</p>
+    <img src="docs/image/readme/Collision_animation.gif" style="max-width: 100%; height: auto;" alt="collision"/>
+  </div>
+  <div style="flex-basis: 48%;">
+    <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Meteorite's orbit</p>
+    <img src="docs/image/readme/Orbit_animation.gif" style="max-width: 100%; height: auto;" alt="orbit"/>
+  </div>
+</div>
+
 
 ## Import & Export image
 
