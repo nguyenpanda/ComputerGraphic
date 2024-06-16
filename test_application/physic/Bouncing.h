@@ -2,28 +2,23 @@
 // Created by ANH KHOA on 6/11/2024.
 //
 
-#ifndef COMPUTERGRAPHIC_COLLISION_H
-#define COMPUTERGRAPHIC_COLLISION_H
+#ifndef COMPUTERGRAPHIC_BOUNCING_H
+#define COMPUTERGRAPHIC_BOUNCING_H
 
 #include "../../src/GraphicScreen.h"
 
 #include <iostream>
-#include <vector>
-#include <iomanip>
-#include <fstream>
-#include <sstream>
 #include <thread>
 #include <chrono>
 #include <random>
-#include <cmath>
 
 namespace Physic {
 
-    class Particle;
-    class Box;
+    class Particle_bouncing;
+    class Box_bouncing;
 
-    class Particle {
-        friend Box;
+    class Particle_bouncing {
+        friend Box_bouncing;
 
     private:
         double x, y;
@@ -31,13 +26,13 @@ namespace Physic {
         double a_x, a_y;
 
     public:
-        Particle(int w, int h);
+        Particle_bouncing(int w, int h);
 
-        Particle(double inti_x, double inti_y,
+        Particle_bouncing(double inti_x, double inti_y,
                  double inti_v_x, double inti_v_y,
                  double inti_a_x, double inti_a_y);
 
-        ~Particle() = default;
+        ~Particle_bouncing() = default;
 
         void updateState(double _dt);
 
@@ -48,26 +43,26 @@ namespace Physic {
         [[nodiscard]] int get_y() const;
     };
 
-    class Box {
-        friend Particle;
+    class Box_bouncing {
+        friend Particle_bouncing;
 
     public:
         int width, height;
         double dt;
-        Particle* p = nullptr;
+        Particle_bouncing* p = nullptr;
         graphic::Screen* scr = nullptr;
         std::queue<std::pair<int, int> >* history;
 
-        Box(int w, int h, int fps);
+        Box_bouncing(int w, int h, int fps);
 
-        ~Box();
+        ~Box_bouncing();
 
         void update_frame() const;
 
         void check_collision() const;
     };
 
-    void gravity();
+    void bouncing();
 }
 
-#endif //COMPUTERGRAPHIC_COLLISION_H
+#endif //COMPUTERGRAPHIC_BOUNCING_H

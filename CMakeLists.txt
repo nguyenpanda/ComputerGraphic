@@ -65,6 +65,12 @@ add_executable(ComputerGraphic
         test_application/digit_recognizer/Dataset.cpp
         test_application/digit_recognizer/Dataset.h
 
+        test_application/physic/Bouncing.cpp
+        test_application/physic/Bouncing.h
+
+        test_application/physic/Orbit.cpp
+        test_application/physic/Orbit.h
+
         # --- Testcase ---
         testcase/testcase.h
 
