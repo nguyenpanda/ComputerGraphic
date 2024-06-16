@@ -91,6 +91,8 @@ namespace cmdline {
                 //@formatter:off
                 << "\t\t-> " << color::CYAN << "-mnist     " << color::RESET << "<file1,...>   " << ": display digits in .csv mnist dataset(s)\n"
                 << "\t\t-> " << color::CYAN << "-bmp_mnist " << color::RESET << "<file1,...>   " << ": save digits as .bmp in .csv mnist dataset(s)\n"
+                << "\t\t-> " << color::CYAN << "-bouncing  " << color::RESET << "              " << ": simulate the motion of a rigid object in gravity with fluid resistance\n"
+                << "\t\t-> " << color::CYAN << "-orbit     " << color::RESET << "              " << ": simulate the motion of an object experiencing gravitational force\n"
                 //@formatter:on
                 << std::endl;
 
@@ -117,8 +119,10 @@ namespace cmdline {
                 execute_all_arguments(AI::test_mnist_animation, i, argc, argv);
             } else if (std::string(argv[i]) == "-bmp_mnist") {
                 execute_all_arguments(AI::test_mnist_bitmap, i, argc, argv);
-            } else if (std::string(argv[i]) == "-collision") {
-                execute_all_arguments(Physic::gravity, i, argc, argv);
+            } else if (std::string(argv[i]) == "-bouncing") {
+                execute_all_arguments(Physic::bouncing, i, argc, argv);
+            } else if (std::string(argv[i]) == "-orbit") {
+                execute_all_arguments(Physic::orbit, i, argc, argv);
             } else {
                 if (argv[i][0] == '-') {
                     std::cout << color::YELLOW << argv[i++]
