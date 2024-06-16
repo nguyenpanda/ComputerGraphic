@@ -6,6 +6,7 @@
 * [`Computer Graphic` documents](#computer-graphic-documents)
 * [Table of contents](#table-of-contents)
 * [Source code dependency graph](#source-code-dependency-graph)
+* [UML class diagram](#uml-class-diagram)
 * [Console display](#console-display)
   * [Color](#color)
   * [Cursor control](#cursor-control)
@@ -22,7 +23,17 @@ and viewed
 at [here](https://lucid.app/lucidchart/68a72af9-e53f-4598-a9ff-7f21c41abe66/edit?viewport_loc=-1733%2C-1227%2C5751%2C3140%2C0_0&invitationId=inv_2e2b332c-cd16-4ccb-b0bc-db0f3d715938)
 <img alt="Dependency graph" src="image/dependency graph/240603.svg" title="Dependency graph"/>
 
+# UML class diagram
+
+---
+Can be downloaded
+and viewed
+at [here](https://lucid.app/lucidchart/af53664b-7482-40d0-99e0-0cd55e0c4eaf/edit?viewport_loc=-2853%2C-1918%2C9268%2C5059%2C0_0&invitationId=inv_743fc1a0-869f-4516-8e2f-55df6b1fd918)
+<img alt="Dependency graph" src="image/class diagram/240617.svg" title="Dependency graph"/>
+
 # Console display
+
+---
 
 ## Color
 We use [ANSI escape code color](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters) in other
