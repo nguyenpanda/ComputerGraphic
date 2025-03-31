@@ -33,6 +33,8 @@ int main(int argc, char* argv[]) {
                 std::cout << color::RED << "Error: -tc option requires an argument." << color::RESET << std::endl;
                 break;
             }
+        } else if (std::string(argv[i]) == "--le_hien") {
+            cmdline::LE_THUY_HIEN(i, argc, argv);
         } else {
             std::cout << color::RED << "Unknown option: " << argv[i] << std::endl;
             break;

@@ -25,6 +25,14 @@ namespace cmdline {
     void custom_func() {
 
         // ADD YOUR CODE HERE
+        graphic::Screen screen;
+        graphic::Bitmap("LTH-2") >> screen;
+        std::cout << screen;
+
+        int w, h;
+        screen.shape(w, h);
+
+        graphic::Bitmap("Emotional Damage_green=100") << screen;
 
     }
 

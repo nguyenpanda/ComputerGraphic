@@ -18,6 +18,8 @@
 // custom_test
 #include "custom_test.h"
 
+#include "le_thuy_hien.h"
+
 #include <chrono>
 #include <thread>
 #include <unistd.h>
@@ -154,6 +156,17 @@ namespace cmdline {
             else if (tc_name == "bmp")          executeTime(testcase::all_bitmap);
             else std::cout << color::RED << "Could not find testcase::" << tc_name << std::endl;
             //@formatter:on
+            ++i;
+        }
+        --i;
+    }
+
+    void LE_THUY_HIEN(int& i, int argc, char* argv[]) {
+        ++i;
+        int img_size;
+        while (i < argc && (std::string(argv[i]) != "--")) {
+            img_size = std::stoi(argv[i]);
+            LTH(img_size);
             ++i;
         }
         --i;

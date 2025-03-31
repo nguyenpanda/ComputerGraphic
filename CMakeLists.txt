@@ -7,6 +7,7 @@ add_executable(ComputerGraphic
         main.cpp
         main.h
         custom_test.h
+        le_thuy_hien.h
 
         src/GraphicScreen.h
 
